@@ -1,0 +1,2423 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalyans International | Global Imports & Exports</title>
+
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #f4f6f9;
+            color: #1a1a1a;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #0B1F3A;
+            font-size: 32px;
+        }
+
+        /* ===== NAVBAR ===== */
+        .navbar {
+            position: fixed;
+            width: 100%;
+            background: #0B1F3A;
+            color: white;
+            padding: 15px 0;
+            z-index: 1000;
+        }
+
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #C9A227;
+        }
+
+        /* Hamburger Icon */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle div {
+            width: 25px;
+            height: 3px;
+            background: white;
+            margin: 4px 0;
+        }
+
+        /* Mobile */
+        @media(max-width:768px) {
+
+            .menu-toggle {
+                display: flex;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #0B1F3A;
+                width: 200px;
+                flex-direction: column;
+                display: none;
+                padding: 20px;
+            }
+
+            .nav-links a {
+                margin: 10px 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            height: 100vh;
+            background-image: url("../KalyansInternational/cargo-ships/cargo-1.jpg");
+            /* Cargo Ship */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        /* Dark overlay */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .hero-overlay {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .hero button {
+            background: #C9A227;
+            border: none;
+            padding: 14px 30px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .hero button:hover {
+            background: white;
+            color: #0B1F3A;
+        }
+
+        /* ===== MOBILE RESPONSIVE ===== */
+        @media(max-width:768px) {
+
+            .hero {
+                height: 90vh;
+                background-position: center;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .hero button {
+                padding: 12px 20px;
+            }
+        }
+
+        /* ===== GRID ===== */
+        .grid {
+            display: grid;
+            gap: 20px;
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* ===== FORM ===== */
+        .form input,
+        .form select,
+        .form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form button {
+            width: 100%;
+            padding: 14px;
+            background: #0B1F3A;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .form button:hover {
+            background: #C9A227;
+            color: black;
+        }
+
+        /* ===== CONTACT ===== */
+        .contact {
+            background: #0B1F3A;
+            color: white;
+        }
+
+        .contact h2 {
+            color: #C9A227;
+        }
+
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:768px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+
+        /* ===== ABOUT PREMIUM ===== */
+
+        .about-section {
+            background: #ffffff;
+        }
+
+        .about-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            flex-wrap: wrap;
+        }
+
+        .about-image {
+            flex: 1;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            transition: transform 1s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-content {
+            flex: 1;
+        }
+
+        .section-title {
+            position: relative;
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #0B1F3A;
+        }
+
+        .underline {
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: #C9A227;
+            margin-top: 8px;
+            transition: width 0.5s ease;
+        }
+
+        .about-content:hover .underline {
+            width: 100px;
+        }
+
+        .about-text {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #444;
+        }
+
+        /* Stats */
+        .about-stats {
+            display: flex;
+            gap: 40px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat h3 {
+            font-size: 32px;
+            color: #C9A227;
+        }
+
+        .stat p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        /* Scroll Animation */
+        .fade-left,
+        .fade-right {
+            opacity: 0;
+            transform: translateX(-80px);
+            transition: all 0.9s ease;
+        }
+
+        .fade-right {
+            transform: translateX(80px);
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* Responsive */
+        @media(max-width:768px) {
+            .about-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .about-stats {
+                justify-content: center;
+            }
+        }
+
+        /* ===== PRODUCTS PREMIUM ===== */
+
+        .products-section {
+            background: #f9fbfd;
+        }
+
+        .category-title {
+            margin: 40px 0 20px;
+            font-size: 22px;
+            color: #0B1F3A;
+            border-left: 5px solid #C9A227;
+            padding-left: 10px;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s ease;
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .product-card h4 {
+            padding: 15px 15px 5px;
+            color: #0B1F3A;
+        }
+
+        .product-card p {
+            padding: 0 15px 20px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        /* FILTER BUTTONS */
+        .filter-buttons {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            margin: 5px;
+            border: none;
+            background: #0B1F3A;
+            color: white;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: #C9A227;
+        }
+
+        /* PRODUCT BADGE */
+        .badge {
+            position: absolute;
+            background: #C9A227;
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            top: 10px;
+            left: 10px;
+            border-radius: 4px;
+        }
+
+        .product-card {
+            position: relative;
+        }
+
+        /* PRODUCT BUTTONS */
+        .product-buttons {
+            display: flex;
+            justify-content: space-between;
+            padding: 0 15px 20px;
+        }
+
+        .product-buttons button,
+        .quote-btn {
+            padding: 8px 12px;
+            font-size: 13px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+
+        .product-buttons button {
+            background: #0B1F3A;
+            color: white;
+        }
+
+        .quote-btn {
+            background: #C9A227;
+            color: white;
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 8px;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .close {
+            float: right;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        /* Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ===== SERVICES SECTION ===== */
+
+        .services-section {
+            background: #ffffff;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 50px;
+            color: #555;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: #f9fbfd;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .service-icon {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            color: #0B1F3A;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #555;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .service-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background: #C9A227;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .trust-strip {
+            margin-top: 60px;
+            padding: 20px;
+            background: #0B1F3A;
+            color: white;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            border-radius: 8px;
+        }
+
+        /* Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== ENQUIRY SECTION ===== */
+
+        .enquiry-section {
+            background: #f9fbfd;
+        }
+
+        .enquiry-wrapper {
+            display: flex;
+            gap: 60px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .enquiry-info {
+            flex: 1;
+        }
+
+        .enquiry-info h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #0B1F3A;
+        }
+
+        .enquiry-info p {
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .enquiry-features div {
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .enquiry-form-container {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        /* Floating Form Style */
+        .form-group {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            outline: none;
+            font-size: 14px;
+            background: transparent;
+        }
+
+        .form-group label {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            font-size: 13px;
+            color: #777;
+            transition: 0.3s;
+            pointer-events: none;
+        }
+
+        .form-group input:focus+label,
+        .form-group input:valid+label,
+        .form-group textarea:focus+label,
+        .form-group textarea:valid+label {
+            top: -10px;
+            left: 8px;
+            font-size: 11px;
+            background: white;
+            padding: 0 5px;
+            color: #C9A227;
+        }
+
+        .enquiry-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #C9A227;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .enquiry-btn:hover {
+            background: #0B1F3A;
+        }
+
+        /* Responsive */
+        @media(max-width:768px) {
+            .enquiry-wrapper {
+                flex-direction: column;
+            }
+        }
+
+        /* Loading */
+        .loading {
+            display: none;
+            margin-top: 15px;
+            color: #C9A227;
+            font-weight: bold;
+        }
+
+        /* Success Popup */
+        .success-popup {
+            display: none;
+            margin-top: 15px;
+            background: #0B1F3A;
+            color: white;
+            padding: 12px;
+            border-radius: 5px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* ===== GALLERY SECTION ===== */
+
+        .gallery-section {
+            background: #ffffff;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 31, 58, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: 0.4s;
+            cursor: pointer;
+        }
+
+        .overlay span {
+            color: white;
+            font-size: 18px;
+            border: 1px solid white;
+            padding: 8px 15px;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        /* MODAL */
+        .gallery-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .gallery-modal img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+
+        .gallery-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 35px;
+            cursor: pointer;
+        }
+
+        /* Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 0.6s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== CONTACT SECTION ===== */
+
+        .contact-section {
+            background: #f9fbfd;
+        }
+
+        .contact-wrapper {
+            display: flex;
+            gap: 50px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .contact-card h3 {
+            margin-bottom: 8px;
+            color: #0B1F3A;
+        }
+
+        .contact-card p {
+            color: #555;
+            font-size: 14px;
+        }
+
+        .contact-whatsapp-btn {
+            display: block;
+            text-align: center;
+            padding: 12px;
+            background: #25D366;
+            color: white;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .contact-form-container {
+            flex: 1;
+            background: white;
+            padding: 35px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            background: #C9A227;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .contact-btn:hover {
+            background: #0B1F3A;
+        }
+
+        .contact-success {
+            display: none;
+            margin-top: 15px;
+            background: #0B1F3A;
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+        }
+
+        /* Map */
+        .map-container {
+            margin-top: 50px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 350px;
+            border-radius: 10px;
+            border: none;
+        }
+
+        /* Responsive */
+        @media(max-width:768px) {
+            .contact-wrapper {
+                flex-direction: column;
+            }
+        }
+
+        /* ===== FOOTER ===== */
+
+        .footer {
+            background: #0B1F3A;
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .footer-col h3,
+        .footer-col h4 {
+            margin-bottom: 15px;
+            color: #C9A227;
+        }
+
+        .footer-col p,
+        .footer-col li {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #ddd;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col a {
+            text-decoration: none;
+            color: #ddd;
+            transition: 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #C9A227;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 13px;
+        }
+
+        /* Live Chat Button */
+        .live-chat-btn {
+            padding: 10px 15px;
+            border: none;
+            background: #C9A227;
+            color: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        /* Floating WhatsApp */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            color: white;
+            font-size: 24px;
+            width: 55px;
+            height: 55px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 999;
+        }
+
+        /* Live Chat Popup */
+        .live-chat-box {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 300px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            z-index: 999;
+        }
+
+        .live-chat-header {
+            background: #0B1F3A;
+            color: white;
+            padding: 10px;
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .live-chat-body {
+            padding: 15px;
+            font-size: 13px;
+            color: #333;
+        }
+
+        .live-chat-footer {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        .live-chat-footer input {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            outline: none;
+        }
+
+        .live-chat-footer button {
+            background: #C9A227;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        /* Floating WhatsApp */
+        .floating-whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .floating-whatsapp:hover {
+            transform: scale(1.1);
+        }
+
+        /* Floating Live Chat ABOVE WhatsApp */
+        .floating-livechat {
+            position: fixed;
+            bottom: 95px;
+            right: 20px;
+            background: #0B1F3A;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .floating-livechat:hover {
+            transform: scale(1.1);
+        }
+
+        /* Live Chat Box */
+        .live-chat-box {
+            display: none;
+            position: fixed;
+            bottom: 170px;
+            right: 20px;
+            width: 320px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            z-index: 1000;
+            animation: slideUp 0.3s ease;
+        }
+
+        @keyframes slideUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .live-chat-header {
+            background: #0B1F3A;
+            color: white;
+            padding: 12px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+        }
+
+        .live-chat-body {
+            padding: 15px;
+            height: 220px;
+            overflow-y: auto;
+            font-size: 13px;
+        }
+
+        .chat-message {
+            margin-bottom: 10px;
+        }
+
+        .bot {
+            color: #0B1F3A;
+            font-weight: bold;
+        }
+
+        .user {
+            text-align: right;
+            color: #C9A227;
+        }
+
+        .live-chat-footer {
+            display: flex;
+            border-top: 1px solid #ddd;
+        }
+
+        .live-chat-footer input {
+            flex: 1;
+            padding: 8px;
+            border: none;
+            outline: none;
+        }
+
+        .live-chat-footer button {
+            background: #C9A227;
+            border: none;
+            color: white;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        /* Typing Animation */
+        .typing {
+            display: flex;
+            gap: 4px;
+            padding: 8px 0;
+        }
+
+        .typing span {
+            width: 6px;
+            height: 6px;
+            background: #0B1F3A;
+            border-radius: 50%;
+            animation: blink 1.4s infinite both;
+        }
+
+        .typing span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: .2
+            }
+
+            20% {
+                opacity: 1
+            }
+
+            100% {
+                opacity: .2
+            }
+        }
+
+        .footer {
+            background: linear-gradient(135deg, #081b33, #0d2b4d);
+            color: #fff;
+            padding-top: 70px;
+            position: relative;
+        }
+
+        .footer-top-border {
+            height: 4px;
+            background: linear-gradient(90deg, #C9A227, #f5d76e, #C9A227);
+        }
+
+        .footer-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: space-between;
+            padding-bottom: 50px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .footer-col h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: #C9A227;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 18px;
+            font-size: 16px;
+            letter-spacing: 1px;
+            color: #f5d76e;
+        }
+
+        .footer-col p,
+        .footer-col li {
+            font-size: 14px;
+            color: #dcdcdc;
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col a {
+            color: #dcdcdc;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #C9A227;
+            padding-left: 5px;
+        }
+
+        .social-icons {
+            margin-top: 15px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin-right: 12px;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.2);
+            color: #C9A227;
+        }
+
+        .footer-certifications {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 0;
+            text-align: center;
+            font-size: 13px;
+            letter-spacing: 1px;
+        }
+
+        .footer-certifications span {
+            margin: 0 15px;
+            color: #f5d76e;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 13px;
+            color: #aaa;
+        }
+
+        .footer {
+            background: #071a2f;
+            color: #fff;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .footer-glow-line {
+            height: 4px;
+            background: linear-gradient(90deg, #d4af37, #f5d76e, #d4af37);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
+        }
+
+        .footer-wrapper {
+            display: flex;
+            justify-content: space-between;
+            gap: 60px;
+            padding: 60px 0;
+            flex-wrap: wrap;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 220px;
+        }
+
+        .brand-col h2 {
+            font-size: 26px;
+            color: #d4af37;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .footer-col h4 {
+            font-size: 15px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #f5d76e;
+        }
+
+        .footer-col p,
+        .footer-col li {
+            font-size: 14px;
+            color: #cfd8e3;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .footer-col ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-col a {
+            color: #cfd8e3;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer-col a:hover {
+            color: #d4af37;
+            padding-left: 6px;
+        }
+
+        .footer-social {
+            margin-top: 20px;
+        }
+
+        .footer-social a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            margin-right: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            transition: 0.3s;
+        }
+
+        .footer-social a:hover {
+            background: #d4af37;
+            color: #071a2f;
+        }
+
+        .footer-cert {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 13px;
+            color: #f5d76e;
+            flex-wrap: wrap;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 0;
+            font-size: 13px;
+            color: #8fa4bb;
+        }
+
+        .floating-livechat {
+            position: fixed;
+            bottom: 100px;
+            right: 25px;
+            width: 65px;
+            height: 65px;
+            background: linear-gradient(135deg, #d4af37, #b8962e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            cursor: pointer;
+            transition: 0.3s;
+            z-index: 999;
+        }
+
+        .floating-livechat:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="container navbar-content">
+            <h2>Kalyans International</h2>
+
+            <!-- Hamburger -->
+            <div class="menu-toggle" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
+            <!-- Menu Links -->
+            <div class="nav-links" id="navLinks">
+                <a href="#about" onclick="toggleMenu()">About</a>
+                <a href="#products" onclick="toggleMenu()">Products</a>
+                <a href="#services" onclick="toggleMenu()">Services</a>
+                <a href="#gallery" onclick="toggleMenu()">Gallery</a>
+                <a href="#footer" onclick="toggleMenu()">Contact</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO -->
+    <div class="hero">
+        <div class="hero-overlay">
+            <h1>Global Trade. Trusted Partnerships.</h1>
+            <p>Exporting Excellence Across Africa, UAE, Asia & Global Markets</p>
+            <button onclick="document.getElementById('booking').scrollIntoView()">
+                Book a Query
+            </button>
+        </div>
+    </div>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="about-section section">
+        <div class="container about-wrapper">
+
+            <!-- Left Image -->
+            <div class="about-image fade-left">
+                <img src="../KalyansInternational/cargo-ships/cargo-2.jpg" alt="Cargo Ship">
+            </div>
+
+            <!-- Right Content -->
+            <div class="about-content fade-right">
+
+                <h2 class="section-title">
+                    About Kalyans International
+                    <span class="underline"></span>
+                </h2>
+
+                <p class="about-text">
+                    Kalyans International is a trusted global import & export company
+                    operating across Africa, UAE, Asia and emerging international markets.
+                    We specialize in agricultural commodities, oils, organic products,
+                    spices and industrial goods with a commitment to quality and reliability.
+                </p>
+
+                <p class="about-text">
+                    Our global sourcing network, supplier coordination and export
+                    documentation expertise ensure smooth trade operations
+                    from origin to destination.
+                </p>
+
+                <!-- Stats -->
+                <div class="about-stats">
+                    <div class="stat">
+                        <h3 class="counter" data-target="25">0</h3>
+                        <p>Countries Served</p>
+                    </div>
+
+                    <div class="stat">
+                        <h3 class="counter" data-target="500">0</h3>
+                        <p>Successful Shipments</p>
+                    </div>
+
+                    <div class="stat">
+                        <h3 class="counter" data-target="120">0</h3>
+                        <p>Global Clients</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= PRODUCTS SECTION ================= -->
+    <section id="products" class="section products-section">
+        <div class="container">
+
+            <h2 class="section-title">
+                Our Export Products
+                <span class="underline"></span>
+            </h2>
+
+            <!-- FILTER BUTTONS -->
+            <div class="filter-buttons">
+                <button class="filter-btn active" onclick="filterProducts('all', event)">All</button>
+                <button class="filter-btn" onclick="filterProducts('agriculture', event)">Agricultural</button>
+                <button class="filter-btn" onclick="filterProducts('organic', event)">Organic & Fresh</button>
+                <button class="filter-btn" onclick="filterProducts('nuts', event)">Nuts & Spices</button>
+                <button class="filter-btn" onclick="filterProducts('oils', event)">Edible Oils</button>
+            </div>
+
+            <!-- ================= AGRICULTURAL ================= -->
+            <div class="product-grid agriculture">
+
+                <div class="product-card reveal">
+                    <div class="badge">Export Quality</div>
+                    <img src="../KalyansInternational/products/cerals.jpg">
+                    <h4>Cereals</h4>
+                    <p>Premium export-grade cereals sourced from certified farms and processed to international
+                        standards.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Cereals')">View Details</button>
+                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Cereals" target="_blank"
+                            class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="badge">Bulk Supply</div>
+                    <img src="../KalyansInternational/products/corn.jpg">
+                    <h4>Maize</h4>
+                    <p>High-yield maize suitable for food processing, livestock feed and industrial use.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Maize')">View Details</button>
+                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Maize" target="_blank"
+                            class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="badge">Nutrient Rich</div>
+                    <img src="../KalyansInternational/products/millets.png">
+                    <h4>Millets</h4>
+                    <p>Organic and sustainable millets with high nutritional value and export packaging.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Millets')">View Details</button>
+                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Millets" target="_blank"
+                            class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="badge">Textile Grade</div>
+                    <img src="../KalyansInternational/products/cotton.jpg">
+                    <h4>Cotton</h4>
+                    <p>High-quality raw cotton meeting global textile manufacturing requirements.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Cotton')">View Details</button>
+                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Cotton" target="_blank"
+                            class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ================= ORGANIC ================= -->
+            <div class="product-grid organic">
+
+                <div class="product-card reveal">
+                    <div class="badge">Fresh Export</div>
+                    <img src="../KalyansInternational/products/fruits.jpg">
+                    <h4>Fresh Fruits</h4>
+                    <p>Carefully sorted and packaged export-quality seasonal fruits.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Fresh Fruits')">View Details</button>
+                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Fresh%20Fruits"
+                            target="_blank" class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="badge">Farm Fresh</div>
+                    <img src="../KalyansInternational/products/vegtables.jpg">
+                    <h4>Fresh Vegetables</h4>
+                    <p>Freshly harvested vegetables maintained under strict quality control.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Fresh Vegetables')">View Details</button>
+                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Fresh%20Vegetables"
+                            target="_blank" class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="badge">Premium Grade</div>
+                    <img src="../KalyansInternational/products/coconuts.jpg">
+                    <h4>Coconut</h4>
+                    <p>Premium coconuts and coconut-based products for global distribution.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Coconut')">View Details</button>
+                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Coconut" target="_blank"
+                            class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="badge">Arabica & Robusta</div>
+                    <img src="../KalyansInternational/products/coffee-1.jpg">
+                    <h4>Coffee</h4>
+                    <p>Rich aroma coffee beans sourced from trusted plantations.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Coffee')">View Details</button>
+                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Coffee" target="_blank"
+                            class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ================= NUTS ================= -->
+            <div class="product-grid nuts">
+
+                <div class="product-card reveal">
+                    <div class="badge">Premium Export</div>
+                    <img src="../KalyansInternational/products/cashew.jpg">
+                    <h4>Cashew</h4>
+                    <p>Export-grade cashews processed in hygienic facilities.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Cashew')">View Details</button>
+                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Cashew" target="_blank"
+                            class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="badge">High Oil Content</div>
+                    <img src="../KalyansInternational/products/groundnuts.jpg">
+                    <h4>Ground Nut</h4>
+                    <p>Premium quality groundnuts suitable for oil extraction and food industries.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Ground Nut')">View Details</button>
+                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Ground%20Nut"
+                            target="_blank" class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="badge">Aromatic Grade</div>
+                    <img src="../KalyansInternational/products/spices.jpg">
+                    <h4>Spices</h4>
+                    <p>High-quality spices meeting global export and packaging standards.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Spices')">View Details</button>
+                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Spices" target="_blank"
+                            class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ================= OILS ================= -->
+            <div class="product-grid oils">
+
+                <div class="product-card reveal">
+                    <div class="badge">Cold Pressed</div>
+                    <img src="../KalyansInternational/products/oil-1.jpg">
+                    <h4>Ground Nut Oil</h4>
+                    <p>High purity groundnut oil processed using advanced refining methods.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Ground Nut Oil')">View Details</button>
+                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Ground%20Nut%20Oil"
+                            target="_blank" class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="badge">Refined Grade</div>
+                    <img src="../KalyansInternational/products/oil-2.jpg">
+                    <h4>Sunflower Oil</h4>
+                    <p>Refined sunflower oil suitable for cooking and industrial applications.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Sunflower Oil')">View Details</button>
+                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Sunflower%20Oil"
+                            target="_blank" class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ================= SERVICES SECTION ================= -->
+    <section id="services" class="section services-section">
+        <div class="container">
+
+            <h2 class="section-title">
+                Our Global Services
+                <span class="underline"></span>
+            </h2>
+
+            <p class="section-subtitle">
+                Delivering trusted export solutions across Africa, UAE, Asia and international markets.
+            </p>
+
+            <div class="services-grid">
+
+                <!-- Service 1 -->
+                <div class="service-card reveal">
+                    <div class="service-icon">🌍</div>
+                    <h3>Global Sourcing & Procurement</h3>
+                    <p>
+                        Strategic sourcing of agricultural and industrial products
+                        through verified suppliers and international quality standards.
+                    </p>
+                    <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Global%20Sourcing"
+                        target="_blank" class="service-btn">Request Service</a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="service-card reveal">
+                    <div class="service-icon">📄</div>
+                    <h3>Export Documentation & Compliance</h3>
+                    <p>
+                        Complete handling of export documentation, customs clearance,
+                        certifications and international trade compliance.
+                    </p>
+                    <a href="https://wa.me/919999999999?text=I%20need%20Export%20Documentation%20Support"
+                        target="_blank" class="service-btn">Request Service</a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="service-card reveal">
+                    <div class="service-icon">📦</div>
+                    <h3>Bulk Supply & Contract Fulfillment</h3>
+                    <p>
+                        Reliable bulk supply management and long-term contract
+                        execution with guaranteed delivery timelines.
+                    </p>
+                    <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Bulk%20Supply" target="_blank"
+                        class="service-btn">Request Service</a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="service-card reveal">
+                    <div class="service-icon">🚢</div>
+                    <h3>International Logistics & Freight</h3>
+                    <p>
+                        End-to-end logistics coordination including sea freight,
+                        air freight and secure cargo handling.
+                    </p>
+                    <a href="https://wa.me/919999999999?text=I%20need%20Logistics%20Support" target="_blank"
+                        class="service-btn">Request Service</a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="service-card reveal">
+                    <div class="service-icon">✔</div>
+                    <h3>Quality Inspection & Certification</h3>
+                    <p>
+                        Strict quality checks, lab testing and export certifications
+                        to meet global regulatory requirements.
+                    </p>
+                    <a href="https://wa.me/919999999999?text=I%20need%20Quality%20Certification" target="_blank"
+                        class="service-btn">Request Service</a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="service-card reveal">
+                    <div class="service-icon">🤝</div>
+                    <h3>B2B Trade Partnership Solutions</h3>
+                    <p>
+                        Building long-term international trade partnerships with
+                        transparent pricing and professional support.
+                    </p>
+                    <a href="https://wa.me/919999999999?text=I%20want%20B2B%20Partnership" target="_blank"
+                        class="service-btn">Request Service</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <!-- ================= ENTERPRISE BOOK ENQUIRY ================= -->
+    <section id="booking" class="section enquiry-section">
+        <div class="container enquiry-wrapper">
+
+            <!-- LEFT SIDE -->
+            <div class="enquiry-info">
+                <h2>International Trade Enquiry</h2>
+                <p>
+                    Submit your bulk requirement, sourcing request, or partnership inquiry.
+                    Our export team will respond within 24 hours.
+                </p>
+
+                <div class="enquiry-features">
+                    <div>✔ Global Bulk Orders</div>
+                    <div>✔ Verified Export Compliance</div>
+                    <div>✔ International Freight Handling</div>
+                    <div>✔ Dedicated Trade Manager</div>
+                </div>
+            </div>
+
+            <!-- RIGHT SIDE FORM -->
+            <div class="enquiry-form-container">
+
+                <form id="enquiryForm" action="https://formsubmit.co/YOUR_EMAIL@gmail.com" method="POST"
+                    enctype="multipart/form-data" onsubmit="handleSubmit(event)">
+
+                    <!-- CRM Hidden Fields -->
+                    <input type="hidden" name="_subject" value="New International Trade Enquiry">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+
+                    <div class="form-group">
+                        <input type="text" name="Full Name" required>
+                        <label>Full Name</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="Company Name" required>
+                        <label>Company Name</label>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="email" name="Email" required>
+                        <label>Email Address</label>
+                    </div>
+
+                    <!-- COUNTRY DROPDOWN -->
+                    <div class="form-group">
+                        <select name="Country" required>
+                            <option value="">Select Country</option>
+                            <option>United Arab Emirates</option>
+                            <option>Saudi Arabia</option>
+                            <option>Qatar</option>
+                            <option>Oman</option>
+                            <option>South Africa</option>
+                            <option>Kenya</option>
+                            <option>Nigeria</option>
+                            <option>USA</option>
+                            <option>United Kingdom</option>
+                            <option>Germany</option>
+                            <option>Singapore</option>
+                            <option>Malaysia</option>
+                            <option>Australia</option>
+                            <option>Canada</option>
+                            <option>India</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <select name="Product Required" required>
+                            <option value="">Select Product</option>
+                            <option>Cereals</option>
+                            <option>Maize</option>
+                            <option>Millets</option>
+                            <option>Cotton</option>
+                            <option>Fresh Fruits</option>
+                            <option>Fresh Vegetables</option>
+                            <option>Coconut</option>
+                            <option>Coffee</option>
+                            <option>Cashew</option>
+                            <option>Ground Nut</option>
+                            <option>Spices</option>
+                            <option>Ground Nut Oil</option>
+                            <option>Sunflower Oil</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" name="Quantity Required" required>
+                        <label>Required Quantity (e.g. 20 Tons)</label>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea name="Additional Details" rows="4" required></textarea>
+                        <label>Additional Details</label>
+                    </div>
+
+                    <button type="submit" class="enquiry-btn">
+                        Submit Enquiry
+                    </button>
+
+                </form>
+
+                <!-- Loading -->
+                <div id="loadingSpinner" class="loading">
+                    Sending Enquiry...
+                </div>
+
+                <!-- Success Popup -->
+                <div id="successPopup" class="success-popup">
+                    ✔ Your enquiry has been submitted successfully!
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- ================= PREMIUM GALLERY SECTION ================= -->
+    <section id="gallery" class="section gallery-section">
+        <div class="container">
+
+            <h2 class="section-title">
+                Our Global Operations
+                <span class="underline"></span>
+            </h2>
+
+            <p class="section-subtitle">
+                Showcasing our export quality products, logistics operations and international trade activities.
+            </p>
+
+            <div class="gallery-grid">
+
+                <div class="gallery-item reveal">
+                    <img src="../KalyansInternational/cargo-ships/cargo-3.jpg" alt="">
+                    <div class="overlay" onclick="openGallery(this)">
+                        <span>View</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal">
+                    <img src="../KalyansInternational/products/spices.jpg" alt="">
+                    <div class="overlay" onclick="openGallery(this)">
+                        <span>View</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal">
+                    <img src="../KalyansInternational/products/warehouse.png" alt="">
+                    <div class="overlay" onclick="openGallery(this)">
+                        <span>View</span>
+                    </div>
+                </div>
+
+                <div class="gallery-item reveal">
+                    <img src="../KalyansInternational/products/products-shipping.jpg" alt="">
+                    <div class="overlay" onclick="openGallery(this)">
+                        <span>View</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- ================= PREMIUM FOOTER ================= -->
+    <footer  id= "footer" class="footer">
+
+        <div class="footer-glow-line"></div>
+
+        <div class="container footer-wrapper">
+
+            <!-- Company Info -->
+            <div class="footer-col brand-col">
+                <h2>Kalyans International</h2>
+
+                <p>
+                    Delivering premium agricultural commodities, edible oils and
+                    global trade logistics with compliance, reliability and
+                    international quality standards.
+                </p>
+            </div>
+
+            <!-- Company -->
+            <div class="footer-col">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Our Products</a></li>
+                    <li><a href="#services">Global Services</a></li>
+                    <li><a href="#gallery">Infrastructure</a></li>
+                </ul>
+            </div>
+
+            <!-- Markets -->
+            <div class="footer-col">
+                <h4>Global Markets</h4>
+                <ul>
+                    <li>Africa</li>
+                    <li>United Arab Emirates</li>
+                    <li>South East Asia</li>
+                    <li>International Trade Network</li>
+                </ul>
+            </div>
+
+            <!-- Contact -->
+            <div class="footer-col contact-col">
+                <h4>Contact & Offices</h4>
+                <p><strong>Hyderabad HQ</strong><br>Telangana, India</p>
+                <p><strong>Kadapa Branch</strong><br>Andhra Pradesh, India</p>
+                <p>info@kalyansinternational.com</p>
+                <p>+91 99999 99999</p>
+            </div>
+
+        </div>
+
+        <div class="footer-cert">
+            <div>ISO Certified</div>
+            <div>Global Export Compliance</div>
+            <div>Quality Assured Supply Chain</div>
+            <div>International Trade Documentation</div>
+        </div>
+
+        <div class="footer-bottom">
+            © 2026 Kalyans International. All Rights Reserved.
+        </div>
+
+    </footer>
+    <script>
+        function showContactSuccess(event) {
+            event.preventDefault();
+
+            document.getElementById("contactSuccess").style.display = "block";
+
+            setTimeout(function () {
+                event.target.submit();
+            }, 1500);
+        }
+    </script>
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+
+            document.getElementById("loadingSpinner").style.display = "block";
+
+            setTimeout(function () {
+
+                document.getElementById("loadingSpinner").style.display = "none";
+                document.getElementById("successPopup").style.display = "block";
+
+                // WhatsApp Backup
+                let name = document.querySelector('input[name="Full Name"]').value;
+                let product = document.querySelector('select[name="Product Required"]').value;
+
+                let message = "New International Trade Enquiry%0AName: " + name + "%0AProduct: " + product;
+
+                window.open("https://wa.me/919999999999?text=" + message, "_blank");
+
+                document.getElementById("enquiryForm").submit();
+
+            }, 2000);
+        }
+    </script>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById("navLinks");
+            menu.classList.toggle("active");
+        }
+    </script>
+
+    <script>
+        /* Scroll Reveal Animation */
+        window.addEventListener("scroll", function () {
+            const elements = document.querySelectorAll(".fade-left, .fade-right");
+
+            elements.forEach(function (el) {
+                const position = el.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+
+                if (position < screenPosition) {
+                    el.classList.add("show");
+                }
+            });
+        });
+
+        /* Counter Animation */
+        const counters = document.querySelectorAll(".counter");
+
+        window.addEventListener("scroll", function () {
+            counters.forEach(counter => {
+                const position = counter.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight;
+
+                if (position < screenPosition && counter.innerText == "0") {
+                    const target = +counter.getAttribute("data-target");
+                    let count = 0;
+                    const increment = target / 100;
+
+                    const updateCounter = () => {
+                        count += increment;
+                        if (count < target) {
+                            counter.innerText = Math.ceil(count);
+                            setTimeout(updateCounter, 20);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    };
+
+                    updateCounter();
+                }
+            });
+        });
+    </script>
+
+    <script>
+
+        /* FILTER FUNCTION */
+        function filterProducts(category) {
+            const grids = document.querySelectorAll('.product-grid');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+
+            grids.forEach(grid => {
+                if (category === 'all') {
+                    grid.style.display = 'grid';
+                } else {
+                    if (grid.classList.contains(category)) {
+                        grid.style.display = 'grid';
+                    } else {
+                        grid.style.display = 'none';
+                    }
+                }
+            });
+        }
+
+        /* MODAL */
+        function openModal(product) {
+            document.getElementById("productModal").style.display = "flex";
+            document.getElementById("modalTitle").innerText = product;
+            document.getElementById("modalWhatsapp").href =
+                "https://wa.me/919999999999?text=I%20am%20interested%20in%20" + product;
+        }
+
+        function closeModal() {
+            document.getElementById("productModal").style.display = "none";
+        }
+
+        /* SCROLL ANIMATION */
+        window.addEventListener("scroll", function () {
+            const reveals = document.querySelectorAll(".reveal");
+
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add("active");
+                }
+            });
+        });
+
+    </script>
+    <script>
+        function openGallery(element) {
+            const imgSrc = element.parentElement.querySelector("img").src;
+            document.getElementById("galleryPreview").src = imgSrc;
+            document.getElementById("galleryModal").style.display = "flex";
+        }
+
+        function closeGallery() {
+            document.getElementById("galleryModal").style.display = "none";
+        }
+
+        /* Scroll Animation */
+        window.addEventListener("scroll", function () {
+            const reveals = document.querySelectorAll(".reveal");
+
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add("active");
+                }
+            });
+        });
+    </script>
+    <script>
+
+        function openLiveChat() {
+            document.getElementById("liveChatBox").style.display = "block";
+            startAutoMessages();
+        }
+
+        function closeLiveChat() {
+            document.getElementById("liveChatBox").style.display = "none";
+        }
+
+        function playSound() {
+            document.getElementById("chatSound").play();
+        }
+
+        function startAutoMessages() {
+            const chatBody = document.getElementById("chatBody");
+            chatBody.innerHTML = "";
+
+            botMessage("Welcome to Kalyans International 🌍");
+            setTimeout(() => botMessage("Are you looking for bulk export supply, pricing, or partnership?"), 1000);
+        }
+
+        function botMessage(text) {
+            const chatBody = document.getElementById("chatBody");
+
+            showTyping();
+
+            setTimeout(() => {
+                removeTyping();
+
+                const msg = document.createElement("div");
+                msg.className = "chat-message bot";
+                msg.innerText = text;
+
+                chatBody.appendChild(msg);
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+                playSound();
+            }, 1500);
+        }
+
+        function showTyping() {
+            const typing = document.createElement("div");
+            typing.className = "typing";
+            typing.id = "typingIndicator";
+            typing.innerHTML = "<span></span><span></span><span></span>";
+            document.getElementById("chatBody").appendChild(typing);
+        }
+
+        function removeTyping() {
+            const typing = document.getElementById("typingIndicator");
+            if (typing) typing.remove();
+        }
+
+        function sendChat() {
+            const input = document.getElementById("chatInput");
+            const text = input.value.trim();
+
+            if (text === "") return;
+
+            const msg = document.createElement("div");
+            msg.className = "chat-message user";
+            msg.innerText = text;
+
+            document.getElementById("chatBody").appendChild(msg);
+            input.value = "";
+
+            aiReply(text);
+        }
+
+        function aiReply(userText) {
+
+            let reply = "";
+
+            userText = userText.toLowerCase();
+
+            if (userText.includes("price") || userText.includes("cost")) {
+                reply = "Our pricing depends on quantity and destination country. Please share product name and volume.";
+            }
+            else if (userText.includes("partnership")) {
+                reply = "We welcome international distributors and trade partners. Please share your company profile.";
+            }
+            else if (userText.includes("oil")) {
+                reply = "We export premium Groundnut Oil, Sunflower Oil and Palm Oil in bulk packaging.";
+            }
+            else if (userText.includes("certificate")) {
+                reply = "We provide export documentation, quality certifications and compliance paperwork.";
+            }
+            else {
+                reply = "Thank you for your enquiry. Our trade manager will connect with you shortly.";
+            }
+
+            botMessage(reply);
+
+            // 🚀 CRM READY STRUCTURE (Backend API Ready)
+            sendToCRM(userText, reply);
+        }
+
+        function sendToCRM(userMessage, botReply) {
+
+            // This is where you connect backend API
+            fetch("https://your-backend-api.com/chat", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    user_message: userMessage,
+                    bot_reply: botReply,
+                    timestamp: new Date()
+                })
+            }).catch(error => console.log("CRM not connected yet"));
+        }
+
+    </script>
+
+    <!-- PRODUCT MODAL -->
+    <div id="productModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3 id="modalTitle"></h3>
+            <p>
+                This product meets international export standards with premium packaging,
+                bulk supply capability, and global logistics support.
+            </p>
+            <a id="modalWhatsapp" target="_blank" class="quote-btn">Request Quote</a>
+        </div>
+    </div>
+
+    <!-- ================= FLOATING SUPPORT BUTTONS ================= -->
+
+    <!-- LIVE CHAT BUTTON -->
+    <div class="floating-livechat" onclick="openLiveChat()">
+        <svg viewBox="0 0 64 64" width="30" height="30" fill="white">
+            <rect x="14" y="22" width="36" height="24" rx="8" />
+            <circle cx="26" cy="34" r="4" />
+            <circle cx="38" cy="34" r="4" />
+            <rect x="28" y="12" width="8" height="6" rx="3" />
+            <line x1="32" y1="12" x2="32" y2="6" stroke="white" stroke-width="2" />
+            <circle cx="32" cy="4" r="3" />
+        </svg>
+    </div>
+    <!-- WHATSAPP SVG BUTTON -->
+    <a href="https://wa.me/919999999999" target="_blank" class="floating-whatsapp">
+
+        <svg viewBox="0 0 32 32" width="26" height="26" fill="white">
+            <path
+                d="M19.11 17.36c-.29-.14-1.7-.84-1.96-.94-.26-.1-.45-.14-.64.14-.19.29-.74.94-.91 1.14-.17.19-.34.21-.63.07-.29-.14-1.22-.45-2.33-1.44-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.59.13-.13.29-.34.43-.51.14-.17.19-.29.29-.48.1-.19.05-.36-.02-.51-.07-.14-.64-1.54-.88-2.11-.23-.56-.47-.48-.64-.49l-.55-.01c-.19 0-.51.07-.77.36-.26.29-1.02 1-1.02 2.44 0 1.44 1.04 2.83 1.18 3.03.14.19 2.03 3.1 4.93 4.35.69.3 1.23.48 1.65.61.69.22 1.31.19 1.8.12.55-.08 1.7-.69 1.94-1.35.24-.66.24-1.23.17-1.35-.07-.12-.26-.19-.55-.33z" />
+            <path
+                d="M16 3C9.37 3 4 8.37 4 15c0 2.65.86 5.09 2.32 7.06L4 29l7.19-2.28C13.02 27.55 14.47 28 16 28c6.63 0 12-5.37 12-12S22.63 3 16 3zm0 22c-1.39 0-2.74-.37-3.93-1.06l-.28-.16-4.27 1.35 1.39-4.16-.18-.3A9.94 9.94 0 016 15c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10z" />
+        </svg>
+
+    </a>
+
+    <!-- ================= LIVE CHAT POPUP ================= -->
+
+    <div id="liveChatBox" class="live-chat-box">
+
+        <div class="live-chat-header">
+            Kalyans International Support
+            <span onclick="closeLiveChat()">×</span>
+        </div>
+
+        <div class="live-chat-body" id="chatBody">
+        </div>
+
+        <div class="live-chat-footer">
+            <input type="text" id="chatInput" placeholder="Type your message...">
+            <button onclick="sendChat()">Send</button>
+        </div>
+
+    </div>
+
+    <audio id="chatSound">
+        <source src="https://www.soundjay.com/buttons/sounds/button-3.mp3" type="audio/mpeg">
+    </audio>
+</body>
+
+</html>
