@@ -2461,30 +2461,6 @@
             }, 1500);
         }
     </script>
-    <script>
-        function handleSubmit(event) {
-            event.preventDefault();
-
-            document.getElementById("loadingSpinner").style.display = "block";
-
-            setTimeout(function () {
-
-                document.getElementById("loadingSpinner").style.display = "none";
-                document.getElementById("successPopup").style.display = "block";
-
-                // WhatsApp Backup
-                let name = document.querySelector('input[name="Full Name"]').value;
-                let product = document.querySelector('select[name="Product Required"]').value;
-
-                let message = "New International Trade Enquiry%0AName: " + name + "%0AProduct: " + product;
-
-                window.open("https://wa.me/919502345686?text=" + message, "_blank");
-
-                document.getElementById("enquiryForm").submit();
-
-            }, 2000);
-        }
-    </script>
 
     <script>
         function toggleMenu() {
