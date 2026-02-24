@@ -17,7 +17,7 @@ export async function onRequest(context) {
       },
       body: JSON.stringify({
         from: "Trade Enquiry <onboarding@resend.dev>",
-        to: ["psaibalaji121@gmail.com"],
+        to: ["launchmyportfolio@gmail.com"],
         subject: `New Trade Enquiry - ${data.product}`,
         html: `
           <h2>New International Trade Enquiry</h2>
@@ -35,6 +35,7 @@ export async function onRequest(context) {
 
     if (!resendResponse.ok) {
       const errorText = await resendResponse.text();
+      console.log("Resend Error:", errorText);
       return new Response(errorText, { status: 500 });
     }
 
