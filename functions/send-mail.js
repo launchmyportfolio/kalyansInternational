@@ -1,10 +1,5 @@
-export async function onRequest(context) {
+export async function onRequestPost(context) {
   const { request, env } = context;
-
-  // Allow only POST
-  if (request.method !== "POST") {
-    return new Response("Method Not Allowed", { status: 405 });
-  }
 
   try {
     const data = await request.json();
@@ -42,6 +37,7 @@ export async function onRequest(context) {
     return new Response("Email sent successfully", { status: 200 });
 
   } catch (error) {
+    console.log("Server Error:", error);
     return new Response("Server Error", { status: 500 });
   }
 }
