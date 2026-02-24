@@ -56,6 +56,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            flex-wrap: wrap;
+            /* important */
         }
 
         .nav-links {
@@ -1610,22 +1612,33 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            max-width: 80%;
         }
 
         .logo img {
-            height: 45px;
-            width: auto;
+            height: 40px;
         }
 
         .logo h2 {
-            font-size: 20px;
+            font-size: 18px;
             margin: 0;
         }
 
-        .logo img {
-            height: 50px;
-            border-radius: 8px;
+        @media (max-width: 768px) {
+
+            .logo img {
+                height: 35px;
+            }
+
+            .logo h2 {
+                font-size: 16px;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
         }
 
         .footer-bottom {
