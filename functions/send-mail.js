@@ -1,6 +1,13 @@
 export async function onRequestPost(context) {
   const { request, env } = context;
 
+  // 1. Add CORS headers so the frontend can talk to the backend
+  const corsHeaders = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type",
+  };
+
   try {
     const data = await request.json();
 
@@ -12,7 +19,7 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         from: "Trade Enquiry <onboarding@resend.dev>",
-        to: ["launchmyportfolio@gmail.com"],
+        to: ["launchmyportfolio@gmail.com"], // Must be your Resend login email
         subject: `New Trade Enquiry - ${data.product}`,
         html: `
           <h2>New International Trade Enquiry</h2>
@@ -30,14 +37,33 @@ export async function onRequestPost(context) {
 
     if (!resendResponse.ok) {
       const errorText = await resendResponse.text();
-      console.log("Resend Error:", errorText);
-      return new Response(errorText, { status: 500 });
+      return new Response(JSON.stringify({ error: errorText }), { 
+        status: 500, 
+        headers: { ...corsHeaders, "Content-Type": "application/json" } 
+      });
     }
 
-    return new Response("Email sent successfully", { status: 200 });
+    return new Response(JSON.stringify({ message: "Sent!" }), { 
+      status: 200, 
+      headers: { ...corsHeaders, "Content-Type": "application/json" } 
+    });
 
-  } catch (error) {
-    console.log("Server Error:", error);
-    return new Response("Server Error", { status: 500 });
+  } catch (err) {
+    return new Response(JSON.stringify({ error: err.message }), { 
+      status: 500, 
+      headers: { ...corsHeaders, "Content-Type": "application/json" } 
+    });
   }
+}
+
+// Handle the OPTIONS request for CORS
+export async function onRequestOptions() {
+  return new Response(null, {
+    status: 204,
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Methods": "POST, OPTIONS",
+      "Access-Control-Allow-Headers": "Content-Type",
+    },
+  });
 }
