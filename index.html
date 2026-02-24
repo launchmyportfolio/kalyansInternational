@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalyans International | Global Imports & Exports</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
     <style>
         /* ===== GLOBAL STYLES ===== */
@@ -1474,6 +1475,196 @@
         .floating-livechat:hover {
             transform: scale(1.1);
         }
+
+        .phone-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .country-code-wrapper {
+            width: 120px;
+            /* Small box */
+        }
+
+        .country-code-wrapper select,
+        .country-code-wrapper input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .phone-input {
+            flex: 1;
+            /* Bigger box */
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        /* MODAL BACKGROUND */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* MODAL BOX */
+        .modal-content {
+            background: #fff;
+            padding: 30px;
+            width: 90%;
+            max-width: 500px;
+            border-radius: 10px;
+            position: relative;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 15px;
+        }
+
+        .modal-content p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        /* CLOSE BUTTON */
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+        /* BUTTON */
+        .modal-buttons .quote-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #007b5e;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .modal-buttons .quote-btn:hover {
+            background: #005f47;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            font-size: 22px;
+            color: #ffffff;
+            transition: 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-4px) scale(1.2);
+        }
+
+        /* Brand colors on hover */
+        .fa-whatsapp:hover {
+            color: #25D366;
+        }
+
+        .fa-instagram:hover {
+            color: #E4405F;
+        }
+
+        .fa-linkedin:hover {
+            color: #0077B5;
+        }
+
+        .fa-facebook:hover {
+            color: #1877F2;
+        }
+
+        .fa-youtube:hover {
+            color: #FF0000;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 45px;
+            width: auto;
+        }
+
+        .logo h2 {
+            font-size: 20px;
+            margin: 0;
+        }
+
+        .logo img {
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding: 25px 15px;
+            background: #0f1f2f;
+            /* dark premium shade */
+            color: #ccc;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-line {
+            height: 1px;
+            width: 60%;
+            margin: 0 auto 15px auto;
+            background: linear-gradient(to right, transparent, #d4af37, transparent);
+        }
+
+        .footer-bottom p {
+            margin: 5px 0;
+        }
+
+        .brand {
+            color: #d4af37;
+            /* gold tone */
+            font-weight: 600;
+        }
+
+        .designer .highlight {
+            color: #ffffff;
+            font-weight: 500;
+            transition: 0.3s ease;
+            cursor: pointer;
+        }
+
+        .designer .highlight:hover {
+            color: #d4af37;
+        }
     </style>
 </head>
 
@@ -1481,7 +1672,10 @@
     <!-- NAVBAR -->
     <div class="navbar">
         <div class="container navbar-content">
-            <h2>Kalyans International</h2>
+            <div class="logo">
+                <img src="images/logo.png" alt="Kalyans International Logo">
+                <h2>Kalyans International</h2>
+            </div>
 
             <!-- Hamburger -->
             <div class="menu-toggle" onclick="toggleMenu()">
@@ -1505,7 +1699,7 @@
     <div class="hero">
         <div class="hero-overlay">
             <h1>Global Trade. Trusted Partnerships.</h1>
-            <p>Exporting Excellence Across Africa, UAE, Asia & Global Markets</p>
+            <p>Exporting Excellence Across US, Africa, UAE, Asia, Europian Countries & Global Markets</p>
             <button onclick="document.getElementById('booking').scrollIntoView()">
                 Book a Query
             </button>
@@ -1580,6 +1774,8 @@
                 <button class="filter-btn" onclick="filterProducts('organic', event)">Organic & Fresh</button>
                 <button class="filter-btn" onclick="filterProducts('nuts', event)">Nuts & Spices</button>
                 <button class="filter-btn" onclick="filterProducts('oils', event)">Edible Oils</button>
+                <button class="filter-btn" onclick="filterProducts('poultry', event)">Poultry Products</button>
+                <button class="filter-btn" onclick="filterProducts('dairy', event)">Dairy Products</button>
             </div>
 
             <!-- ================= AGRICULTURAL ================= -->
@@ -1593,7 +1789,7 @@
                         standards.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Cereals')">View Details</button>
-                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Cereals" target="_blank"
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Cereals" target="_blank"
                             class="quote-btn">Request Quote</a>
                     </div>
                 </div>
@@ -1605,7 +1801,7 @@
                     <p>High-yield maize suitable for food processing, livestock feed and industrial use.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Maize')">View Details</button>
-                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Maize" target="_blank"
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Maize" target="_blank"
                             class="quote-btn">Request Quote</a>
                     </div>
                 </div>
@@ -1617,7 +1813,7 @@
                     <p>Organic and sustainable millets with high nutritional value and export packaging.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Millets')">View Details</button>
-                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Millets" target="_blank"
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Millets" target="_blank"
                             class="quote-btn">Request Quote</a>
                     </div>
                 </div>
@@ -1629,7 +1825,7 @@
                     <p>High-quality raw cotton meeting global textile manufacturing requirements.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Cotton')">View Details</button>
-                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Cotton" target="_blank"
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Cotton" target="_blank"
                             class="quote-btn">Request Quote</a>
                     </div>
                 </div>
@@ -1646,7 +1842,7 @@
                     <p>Carefully sorted and packaged export-quality seasonal fruits.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Fresh Fruits')">View Details</button>
-                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Fresh%20Fruits"
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Fresh%20Fruits"
                             target="_blank" class="quote-btn">Request Quote</a>
                     </div>
                 </div>
@@ -1658,7 +1854,7 @@
                     <p>Freshly harvested vegetables maintained under strict quality control.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Fresh Vegetables')">View Details</button>
-                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Fresh%20Vegetables"
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Fresh%20Vegetables"
                             target="_blank" class="quote-btn">Request Quote</a>
                     </div>
                 </div>
@@ -1670,7 +1866,7 @@
                     <p>Premium coconuts and coconut-based products for global distribution.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Coconut')">View Details</button>
-                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Coconut" target="_blank"
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Coconut" target="_blank"
                             class="quote-btn">Request Quote</a>
                     </div>
                 </div>
@@ -1682,7 +1878,7 @@
                     <p>Rich aroma coffee beans sourced from trusted plantations.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Coffee')">View Details</button>
-                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Coffee" target="_blank"
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Coffee" target="_blank"
                             class="quote-btn">Request Quote</a>
                     </div>
                 </div>
@@ -1699,7 +1895,7 @@
                     <p>Export-grade cashews processed in hygienic facilities.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Cashew')">View Details</button>
-                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Cashew" target="_blank"
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Cashew" target="_blank"
                             class="quote-btn">Request Quote</a>
                     </div>
                 </div>
@@ -1711,7 +1907,7 @@
                     <p>Premium quality groundnuts suitable for oil extraction and food industries.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Ground Nut')">View Details</button>
-                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Ground%20Nut"
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Ground%20Nut"
                             target="_blank" class="quote-btn">Request Quote</a>
                     </div>
                 </div>
@@ -1723,7 +1919,7 @@
                     <p>High-quality spices meeting global export and packaging standards.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Spices')">View Details</button>
-                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Spices" target="_blank"
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Spices" target="_blank"
                             class="quote-btn">Request Quote</a>
                     </div>
                 </div>
@@ -1740,7 +1936,7 @@
                     <p>High purity groundnut oil processed using advanced refining methods.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Ground Nut Oil')">View Details</button>
-                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Ground%20Nut%20Oil"
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Ground%20Nut%20Oil"
                             target="_blank" class="quote-btn">Request Quote</a>
                     </div>
                 </div>
@@ -1752,8 +1948,96 @@
                     <p>Refined sunflower oil suitable for cooking and industrial applications.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Sunflower Oil')">View Details</button>
-                        <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Sunflower%20Oil"
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Sunflower%20Oil"
                             target="_blank" class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+            </div>
+            <!-- ================= POULTRY ================= -->
+            <div class="product-grid poultry">
+
+                <div class="product-card reveal">
+                    <div class="badge">Fresh Export</div>
+                    <img src="images/meat.jpg">
+                    <h4>Poultry Meat</h4>
+                    <p>Premium quality frozen and chilled poultry meat processed under strict hygiene and international
+                        export
+                        standards.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Poultry Meat')">View Details</button>
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Poultry%20Meat"
+                            target="_blank" class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="badge">Farm Fresh</div>
+                    <img src="images/eggs.jpg">
+                    <h4>Eggs</h4>
+                    <p>High-quality fresh and table eggs sourced from certified farms with export-grade packaging.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Eggs')">View Details</button>
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Eggs" target="_blank"
+                            class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="badge">Processed Cuts</div>
+                    <img src="images/processed-chicken.jpg">
+                    <h4>Processed Chicken Cuts</h4>
+                    <p>Export-grade processed chicken cuts with hygienic packaging and cold chain logistics.</p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Chicken Cuts')">View Details</button>
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Chicken%20Cuts"
+                            target="_blank" class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ================= DAIRY ================= -->
+            <div class="product-grid dairy">
+
+                <div class="product-card reveal">
+                    <div class="badge">Dairy Grade</div>
+                    <img src="images/milk-powder.jpg">
+                    <h4>Milk Powder</h4>
+                    <p>High-quality skimmed and whole milk powder suitable for food processing and bulk export supply.
+                    </p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Milk Powder')">View Details</button>
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Milk%20Powder"
+                            target="_blank" class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="badge">Premium Quality</div>
+                    <img src="images/butter.jpg">
+                    <h4>Butter</h4>
+                    <p>Export-quality dairy butter processed with advanced techniques ensuring rich taste and long shelf
+                        life.
+                    </p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Butter')">View Details</button>
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Butter" target="_blank"
+                            class="quote-btn">Request Quote</a>
+                    </div>
+                </div>
+
+                <div class="product-card reveal">
+                    <div class="badge">Export Pack</div>
+                    <img src="images/cheese.jpg">
+                    <h4>Cheese</h4>
+                    <p>High-quality processed and natural cheese varieties meeting international
+                        dairy export standards.
+                    </p>
+                    <div class="product-buttons">
+                        <button onclick="openModal('Cheese')">View Details</button>
+                        <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Cheese" target="_blank"
+                            class="quote-btn">Request Quote</a>
                     </div>
                 </div>
 
@@ -1761,6 +2045,7 @@
 
         </div>
     </section>
+
 
     <!-- ================= SERVICES SECTION ================= -->
     <section id="services" class="section services-section">
@@ -1772,7 +2057,8 @@
             </h2>
 
             <p class="section-subtitle">
-                Delivering trusted export solutions across Africa, UAE, Asia and international markets.
+                Delivering trusted export solutions across US, Africa, UAE, Asia, Europian countries and international
+                markets.
             </p>
 
             <div class="services-grid">
@@ -1785,7 +2071,7 @@
                         Strategic sourcing of agricultural and industrial products
                         through verified suppliers and international quality standards.
                     </p>
-                    <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Global%20Sourcing"
+                    <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Global%20Sourcing"
                         target="_blank" class="service-btn">Request Service</a>
                 </div>
 
@@ -1797,7 +2083,7 @@
                         Complete handling of export documentation, customs clearance,
                         certifications and international trade compliance.
                     </p>
-                    <a href="https://wa.me/919999999999?text=I%20need%20Export%20Documentation%20Support"
+                    <a href="https://wa.me/919502345686?text=I%20need%20Export%20Documentation%20Support"
                         target="_blank" class="service-btn">Request Service</a>
                 </div>
 
@@ -1809,7 +2095,7 @@
                         Reliable bulk supply management and long-term contract
                         execution with guaranteed delivery timelines.
                     </p>
-                    <a href="https://wa.me/919999999999?text=I%20am%20interested%20in%20Bulk%20Supply" target="_blank"
+                    <a href="https://wa.me/919502345686?text=I%20am%20interested%20in%20Bulk%20Supply" target="_blank"
                         class="service-btn">Request Service</a>
                 </div>
 
@@ -1821,7 +2107,7 @@
                         End-to-end logistics coordination including sea freight,
                         air freight and secure cargo handling.
                     </p>
-                    <a href="https://wa.me/919999999999?text=I%20need%20Logistics%20Support" target="_blank"
+                    <a href="https://wa.me/919502345686?text=I%20need%20Logistics%20Support" target="_blank"
                         class="service-btn">Request Service</a>
                 </div>
 
@@ -1833,7 +2119,7 @@
                         Strict quality checks, lab testing and export certifications
                         to meet global regulatory requirements.
                     </p>
-                    <a href="https://wa.me/919999999999?text=I%20need%20Quality%20Certification" target="_blank"
+                    <a href="https://wa.me/919502345686?text=I%20need%20Quality%20Certification" target="_blank"
                         class="service-btn">Request Service</a>
                 </div>
 
@@ -1845,7 +2131,7 @@
                         Building long-term international trade partnerships with
                         transparent pricing and professional support.
                     </p>
-                    <a href="https://wa.me/919999999999?text=I%20want%20B2B%20Partnership" target="_blank"
+                    <a href="https://wa.me/919502345686?text=I%20want%20B2B%20Partnership" target="_blank"
                         class="service-btn">Request Service</a>
                 </div>
 
@@ -1875,7 +2161,7 @@
             <!-- RIGHT SIDE FORM -->
             <div class="enquiry-form-container">
 
-                <form id="enquiryForm" action="https://formsubmit.co/YOUR_EMAIL@gmail.com" method="POST"
+                <form id="enquiryForm" action="https://formsubmit.co/launchmyportfolio@gmail.com" method="POST"
                     enctype="multipart/form-data" onsubmit="handleSubmit(event)">
 
                     <!-- CRM Hidden Fields -->
@@ -1887,7 +2173,26 @@
                         <input type="text" name="Full Name" required>
                         <label>Full Name</label>
                     </div>
+                    <div class="form-group phone-group">
 
+                        <div class="country-code-wrapper">
+                            <select id="countryCodeSelect" name="countryCode" required>
+                                <option value="+1">+1</option>
+                                <option value="+44">+44</option>
+                                <option value="+91">+91</option>
+                                <option value="+61">+61</option>
+                                <option value="+81">+81</option>
+                                <option value="other">Other</option>
+                            </select>
+
+                            <input type="text" id="otherCountryCode" name="otherCountryCode" placeholder="+XXX"
+                                style="display:none;" pattern="^\+\d{1,4}$">
+                        </div>
+
+                        <input type="tel" name="phone" placeholder="Phone Number" required pattern="\d{4,14}"
+                            class="phone-input">
+
+                    </div>
                     <div class="form-group">
                         <input type="text" name="Company Name" required>
                         <label>Company Name</label>
@@ -1999,7 +2304,7 @@
                 </div>
 
                 <div class="gallery-item reveal">
-                    <img src="images/warehouse.png" alt="">
+                    <img src="images/coffee-1.jpg" alt="">
                     <div class="overlay" onclick="openGallery(this)">
                         <span>View</span>
                     </div>
@@ -2059,17 +2364,53 @@
             <!-- Contact -->
             <div class="footer-col contact-col">
                 <h4>Contact & Offices</h4>
-                <p><strong>Hyderabad HQ</strong><br>Telangana, India</p>
-                <p><strong>Kadapa Branch</strong><br>Andhra Pradesh, India</p>
-                <p>info@kalyansinternational.com</p>
-                <p>+91 99999 99999</p>
+                <p><strong>Hyderabad HQ</strong><br>The District, Myscape Rd <br>Financial District,
+                    Nanakaramguda<br>Telangana 500032</p>
+                <p><strong>Kadapa Branch</strong><br>#43/103, Prakash Nagar<br> Kadapa 516004<br>Andhra Pradesh, India
+                </p>
+                <p>kalyanbabu85@gmail.com</p>
+                <p>+91 95023 45686</p>
             </div>
 
+            <div class="footer-col">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+
+                    <a href="https://wa.me/919502345686" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                    <a href="https://instagram.com/yourusername" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+
+                    <a href="https://linkedin.com/company/yourcompany" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+
+                    <a href="https://facebook.com/yourpage" target="_blank">
+                        <i class="fa-brands fa-facebook"></i>
+                    </a>
+
+                    <a href="https://youtube.com/@yourchannel" target="_blank">
+                        <i class="fa-brands fa-youtube"></i>
+                    </a>
+
+                </div>
+            </div>
         </div>
         <div class="footer-bottom">
-            © 2026 Kalyans International. All Rights Reserved.
-        </div>
+            <div class="footer-line"></div>
 
+            <p>
+                © 2026 <span class="brand">Kalyans International</span>. All Rights Reserved.
+            </p>
+
+            <p class="designer">
+                Designed & Developed by
+                <span class="highlight">LaunchMyPortfolio</span>
+            </p>
+        </div>
     </footer>
     <script>
         function showContactSuccess(event) {
@@ -2099,7 +2440,7 @@
 
                 let message = "New International Trade Enquiry%0AName: " + name + "%0AProduct: " + product;
 
-                window.open("https://wa.me/919999999999?text=" + message, "_blank");
+                window.open("https://wa.me/919502345686?text=" + message, "_blank");
 
                 document.getElementById("enquiryForm").submit();
 
@@ -2113,6 +2454,27 @@
             menu.classList.toggle("active");
         }
     </script>
+
+    <!-- PRODUCT MODAL -->
+    <div id="productModal" class="modal">
+
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal()">&times;</span>
+
+            <h2 id="modalTitle"></h2>
+
+            <p id="modalDescription">
+                Product details will appear here.
+            </p>
+
+            <div class="modal-buttons">
+                <a id="modalWhatsapp" target="_blank" class="quote-btn">
+                    Request Quote
+                </a>
+            </div>
+        </div>
+
+    </div>
 
     <script>
         /* Scroll Reveal Animation */
@@ -2184,16 +2546,53 @@
 
         /* MODAL */
         function openModal(product) {
+
+            const descriptions = {
+                cereals: "Premium export-grade cereals sourced from certified farms and processed to international standards.",
+                maize: "High-yield maize suitable for food processing, livestock feed and industrial use.",
+                millets: "Organic and sustainable millets with high nutritional value and export packaging.",
+                cotton: "High-quality raw cotton meeting global textile manufacturing requirements.",
+                poultry: "Premium frozen and chilled poultry meat processed under strict hygiene and export standards.",
+                eggs: "Farm fresh eggs with export-grade packaging and global compliance.",
+                milkpowder: "High-quality skimmed and whole milk powder for bulk international supply.",
+                butter: "Premium export-quality butter with rich taste and long shelf life.",
+                cheese: "High-quality processed and natural cheese varieties meeting international dairy export standards.",
+                coconut: "Premium coconuts and coconut-based products for global distribution.",
+                coffee: "Rich aroma coffee beans sourced from trusted plantations.",
+                cashew: "Export-grade cashews processed in hygienic facilities.",
+                spices: "High-quality spices meeting global export and packaging standards.",
+                chickencuts: "Export-grade processed chicken cuts with hygienic packaging and cold chain logistics.",
+                poultrymilk: "Premium quality frozen and chilled poultry meat processed under strict hygiene and international export standards.",
+                sunfloweroil: "Refined sunflower oil suitable for cooking and industrial applications.",
+                groundnutoil: "High purity groundnut oil processed using advanced refining methods.",
+                groundnut: "Premium quality groundnuts suitable for oil extraction and food industries.",
+                freshvegetables: "Freshly harvested vegetables maintained under strict quality control.",
+                freshfruits: "Carefully sorted and packaged export-quality seasonal fruits."
+
+            };
+
             document.getElementById("productModal").style.display = "flex";
             document.getElementById("modalTitle").innerText = product;
-            document.getElementById("modalWhatsapp").href =
-                "https://wa.me/919999999999?text=I%20am%20interested%20in%20" + product;
-        }
 
+            const key = product.replace(/\s+/g, '').toLowerCase();
+
+            document.getElementById("modalDescription").innerText =
+                descriptions[key] || "Product details available upon request.";
+
+            document.getElementById("modalWhatsapp").href =
+                "https://wa.me/919502345686?text=I%20am%20interested%20in%20" + product;
+        }
         function closeModal() {
             document.getElementById("productModal").style.display = "none";
         }
 
+        /* Close when clicking outside */
+        window.onclick = function (event) {
+            const modal = document.getElementById("productModal");
+            if (event.target === modal) {
+                closeModal();
+            }
+        }
         /* SCROLL ANIMATION */
         window.addEventListener("scroll", function () {
             const reveals = document.querySelectorAll(".reveal");
@@ -2392,7 +2791,7 @@
         </svg>
     </div>
     <!-- WHATSAPP SVG BUTTON -->
-    <a href="https://wa.me/919999999999" target="_blank" class="floating-whatsapp">
+    <a href="https://wa.me/919502345686" target="_blank" class="floating-whatsapp">
 
         <svg viewBox="0 0 32 32" width="26" height="26" fill="white">
             <path
@@ -2425,6 +2824,20 @@
     <audio id="chatSound">
         <source src="https://www.soundjay.com/buttons/sounds/button-3.mp3" type="audio/mpeg">
     </audio>
+    <script>
+        const countrySelect = document.getElementById('countryCodeSelect');
+        const otherInput = document.getElementById('otherCountryCode');
+
+        countrySelect.addEventListener('change', () => {
+            if (countrySelect.value === 'other') {
+                countrySelect.style.display = 'none';
+                otherInput.style.display = 'block';
+                otherInput.required = true;
+            }
+        });
+    </script>
+
+</body>
 </body>
 
 </html>
