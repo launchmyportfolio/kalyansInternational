@@ -1716,6 +1716,7 @@
                 <a href="#services" onclick="toggleMenu()">Services</a>
                 <a href="#gallery" onclick="toggleMenu()">Gallery</a>
                 <a href="#footer" onclick="toggleMenu()">Contact</a>
+                <a href="#booking" onclick="toggleMenu()">Enquire</a>
             </div>
         </div>
     </div>
@@ -1726,7 +1727,7 @@
             <h1>Global Trade. Trusted Partnerships.</h1>
             <p>Exporting Excellence Across US, Africa, UAE, Asia, Europian Countries & Global Markets</p>
             <button onclick="document.getElementById('booking').scrollIntoView()">
-                Book a Query
+                Enquire
             </button>
         </div>
     </div>
@@ -2000,7 +2001,7 @@
                     <div class="badge">Fresh Export</div>
                     <img src="images/meat.jpg">
                     <h4>Poultry Meat</h4>
-                    <p>Premium quality frozen and chilled poultry meat processed under strict hygiene and international
+                    <p>Premium quality frozen and chilled poultry meat processed strict hygiene international
                         export
                         standards.</p>
                     <div class="product-buttons">
@@ -2393,9 +2394,11 @@
             <div class="footer-col">
                 <h4>Global Markets</h4>
                 <ul>
+                    <li>US</li>
                     <li>Africa</li>
                     <li>United Arab Emirates</li>
                     <li>South East Asia</li>
+                    <li>European Countries</li>
                     <li>International Trade Network</li>
                 </ul>
             </div>
@@ -2408,6 +2411,7 @@
                 <p><strong>Kadapa Branch</strong><br>#43/103, Prakash Nagar<br> Kadapa 516004<br>Andhra Pradesh, India
                 </p>
                 <p>kalyanbabu85@gmail.com</p>
+                <p>kalyansinterational@gmail.com</p>
                 <p>+91 95023 45686</p>
             </div>
 
@@ -2417,6 +2421,10 @@
 
                     <a href="https://wa.me/919502345686" target="_blank">
                         <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/raj.kalyan3" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
                     </a>
 
                     <a href="https://www.facebook.com/raj.kalyan3" target="_blank">
@@ -2666,31 +2674,69 @@
         });
     </script>
     <script>
+        let chatData = {
+            full_name: "",
+            company_name: "",
+            email: "",
+            phone: "",
+            country: "",
+            product: "",
+            quantity: "",
+            details: ""
+        };
+
+        let chatStep = 0;
+
+        const chatQuestions = [
+            "Welcome to Kalyans International 🌍 What's your full name?",
+            "Great! Can you provide your company name?",
+            "Please enter your email address:",
+            "What is your phone number?",
+            "Which country are you contacting us from?",
+            "Which product are you interested in?",
+            "How much quantity do you require?",
+            "Any additional details you want us to know?"
+        ];
+
+        const countryOptions = [
+            "United Arab Emirates", "Saudi Arabia", "Qatar", "Oman",
+            "South Africa", "Kenya", "Nigeria", "USA",
+            "United Kingdom", "Germany", "Singapore", "Malaysia",
+            "Australia", "Canada", "India"
+        ];
+
+        const productOptions = [
+            "Cereals", "Maize", "Millets", "Cotton", "Fresh Fruits", "Fresh Vegetables",
+            "Coconut", "Coffee", "Cashew", "Ground Nut", "Spices", "Ground Nut Oil",
+            "Sunflower Oil", "Poultry Meat", "Eggs", "Processed-Chicken", "Milk Powder",
+            "Butter", "Cheese"
+        ];
 
         function openLiveChat() {
             document.getElementById("liveChatBox").style.display = "block";
-            startAutoMessages();
+            startChatFlow();
         }
 
         function closeLiveChat() {
             document.getElementById("liveChatBox").style.display = "none";
+            chatStep = 0;
+            chatData = { full_name: "", company_name: "", email: "", phone: "", country: "", product: "", quantity: "", details: "" };
+            document.getElementById("chatBody").innerHTML = "";
         }
 
         function playSound() {
-            document.getElementById("chatSound").play();
+            const audio = document.getElementById("chatSound");
+            if (audio) audio.play();
         }
 
-        function startAutoMessages() {
+        function startChatFlow() {
             const chatBody = document.getElementById("chatBody");
             chatBody.innerHTML = "";
-
-            botMessage("Welcome to Kalyans International 🌍");
-            setTimeout(() => botMessage("Are you looking for bulk export supply, pricing, or partnership?"), 1000);
+            botMessage(chatQuestions[chatStep]);
         }
 
         function botMessage(text) {
             const chatBody = document.getElementById("chatBody");
-
             showTyping();
 
             setTimeout(() => {
@@ -2699,12 +2745,15 @@
                 const msg = document.createElement("div");
                 msg.className = "chat-message bot";
                 msg.innerText = text;
-
                 chatBody.appendChild(msg);
                 chatBody.scrollTop = chatBody.scrollHeight;
-
                 playSound();
-            }, 1500);
+
+                // If step needs dropdown
+                if (chatStep === 4) showDropdown(countryOptions, "country");
+                if (chatStep === 5) showDropdown(productOptions, "product");
+
+            }, 1000);
         }
 
         function showTyping() {
@@ -2720,68 +2769,104 @@
             if (typing) typing.remove();
         }
 
+        function showDropdown(options, type) {
+            const chatBody = document.getElementById("chatBody");
+            const select = document.createElement("select");
+            select.className = "chat-dropdown";
+
+            const placeholder = document.createElement("option");
+            placeholder.text = "Select " + type.charAt(0).toUpperCase() + type.slice(1);
+            placeholder.disabled = true;
+            placeholder.selected = true;
+            select.appendChild(placeholder);
+
+            options.forEach(opt => {
+                const option = document.createElement("option");
+                option.value = opt;
+                option.text = opt;
+                select.appendChild(option);
+            });
+
+            chatBody.appendChild(select);
+            select.focus();
+            chatBody.scrollTop = chatBody.scrollHeight;
+
+            select.addEventListener("change", function () {
+                const value = this.value;
+                if (type === "country") chatData.country = value;
+                if (type === "product") chatData.product = value;
+
+                const msg = document.createElement("div");
+                msg.className = "chat-message user";
+                msg.innerText = value;
+                chatBody.appendChild(msg);
+                chatBody.scrollTop = chatBody.scrollHeight;
+
+                chatStep++;
+                botMessage(chatQuestions[chatStep]);
+            });
+        }
+
         function sendChat() {
             const input = document.getElementById("chatInput");
             const text = input.value.trim();
-
             if (text === "") return;
 
             const msg = document.createElement("div");
             msg.className = "chat-message user";
             msg.innerText = text;
-
             document.getElementById("chatBody").appendChild(msg);
             input.value = "";
+            document.getElementById("chatBody").scrollTop = document.getElementById("chatBody").scrollHeight;
 
+            // Step-based storage
+            switch (chatStep) {
+                case 0: chatData.full_name = text; break;
+                case 1: chatData.company_name = text; break;
+                case 2: chatData.email = text; break;
+                case 3: chatData.phone = text; break;
+                case 6: chatData.quantity = text; break;
+                case 7: chatData.details = text; break;
+            }
+
+            // Dynamic AI reply before next question
             aiReply(text);
+
+            // Next step
+            chatStep++;
+            if (chatStep < chatQuestions.length) botMessage(chatQuestions[chatStep]);
+            else submitChatData();
         }
 
         function aiReply(userText) {
-
-            let reply = "";
-
             userText = userText.toLowerCase();
-
             if (userText.includes("price") || userText.includes("cost")) {
-                reply = "Our pricing depends on quantity and destination country. Please share product name and volume.";
+                botMessage("Our pricing depends on quantity & destination. We'll confirm after you provide product & quantity.");
             }
-            else if (userText.includes("partnership")) {
-                reply = "We welcome international distributors and trade partners. Please share your company profile.";
+            else if (userText.includes("partnership") || userText.includes("partner")) {
+                botMessage("We welcome global trade partners. Please provide your company profile in the details step.");
             }
             else if (userText.includes("oil")) {
-                reply = "We export premium Groundnut Oil, Sunflower Oil and Palm Oil in bulk packaging.";
+                botMessage("We export premium Groundnut, Sunflower & Palm Oil in bulk packaging.");
             }
-            else if (userText.includes("certificate")) {
-                reply = "We provide export documentation, quality certifications and compliance paperwork.";
-            }
-            else {
-                reply = "Thank you for your enquiry. Our trade manager will connect with you shortly.";
-            }
-
-            botMessage(reply);
-
-            // 🚀 CRM READY STRUCTURE (Backend API Ready)
-            sendToCRM(userText, reply);
         }
 
-        function sendToCRM(userMessage, botReply) {
-
-            // This is where you connect backend API
-            fetch("https://your-backend-api.com/chat", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    user_message: userMessage,
-                    bot_reply: botReply,
-                    timestamp: new Date()
-                })
-            }).catch(error => console.log("CRM not connected yet"));
+        async function submitChatData() {
+            botMessage("✅ Sending your enquiry to our trade manager...");
+            try {
+                const response = await fetch("/send-mail", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(chatData)
+                });
+                if (response.ok) botMessage("Your enquiry has been successfully submitted. We will contact you shortly!");
+                else botMessage("❌ Something went wrong. Please try again.");
+            } catch (error) {
+                console.error(error);
+                botMessage("❌ Server error. Please try again later.");
+            }
         }
-
     </script>
-
 
 
     <!-- ================= FLOATING SUPPORT BUTTONS ================= -->
