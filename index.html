@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kalyans International | Global Imports & Exports</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
 
     <style>
         /* ===== GLOBAL STYLES ===== */
@@ -512,7 +513,7 @@
         .modal {
             display: none;
             position: fixed;
-            top: 0;
+            top: 20;
             left: 0;
             width: 100%;
             height: 100%;
@@ -1690,6 +1691,214 @@
         .designer .highlight:hover {
             color: #d4af37;
         }
+
+        .modal-content-wrapper {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .modal-image img {
+            width: 250px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        .modal-info {
+            flex: 1;
+        }
+
+        .modal-info h4 {
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .modal-list {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .modal-list li {
+            margin-bottom: 6px;
+        }
+
+        .export-details p {
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content-wrapper {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .modal-image img {
+                width: 100%;
+            }
+        }
+
+        /* ===== MODAL BASE ===== */
+
+        #productModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 999;
+        }
+
+        /* Modal Box */
+        .modal-content {
+            background: #ffffff;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            border-radius: 12px;
+            padding: 25px;
+            position: relative;
+        }
+
+        /* ===== PREMIUM LAYOUT ===== */
+
+        .modal-content-wrapper {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        /* Image Section */
+        .modal-image {
+            flex: 1;
+        }
+
+        .modal-image img {
+            width: 100%;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+
+        /* Info Section */
+        .modal-info {
+            flex: 1.5;
+        }
+
+        .modal-info p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .modal-info h4 {
+            margin-bottom: 10px;
+            margin-top: 15px;
+        }
+
+        .modal-list {
+            padding-left: 18px;
+            margin-bottom: 15px;
+        }
+
+        .modal-list li {
+            margin-bottom: 6px;
+            font-size: 14px;
+        }
+
+        .export-details p {
+            font-size: 14px;
+            margin-bottom: 6px;
+        }
+
+        /* WhatsApp Button */
+        #modalWhatsapp {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 18px;
+            background: #25D366;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        /* Close Button */
+        .close-modal {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            font-size: 22px;
+            cursor: pointer;
+        }
+
+
+        /* ============================= */
+        /* 📱 MOBILE RESPONSIVE FIX */
+        /* ============================= */
+
+        @media (max-width: 768px) {
+
+            .modal-content {
+                padding: 18px;
+                border-radius: 10px;
+            }
+
+            .modal-content-wrapper {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .modal-image img {
+                width: 100%;
+                height: auto;
+            }
+
+            .modal-info {
+                width: 100%;
+            }
+
+            .modal-info h4 {
+                font-size: 16px;
+            }
+
+            .modal-list li {
+                font-size: 13px;
+            }
+
+            .export-details p {
+                font-size: 13px;
+            }
+
+            .modal-quote-btn {
+                margin-top: 18px;
+                padding: 12px 20px;
+                background: #1f3c88;
+                /* corporate blue */
+                color: white;
+                border: none;
+                border-radius: 6px;
+                cursor: pointer;
+                font-weight: 500;
+                width: 100%;
+            }
+
+            .modal-quote-btn:hover {
+                background: #162d66;
+            }
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        main {
+            padding-top: 80px;
+        }
     </style>
 </head>
 
@@ -1715,8 +1924,8 @@
                 <a href="#products" onclick="toggleMenu()">Products</a>
                 <a href="#services" onclick="toggleMenu()">Services</a>
                 <a href="#gallery" onclick="toggleMenu()">Gallery</a>
-                <a href="#footer" onclick="toggleMenu()">Contact</a>
                 <a href="#booking" onclick="toggleMenu()">Enquire</a>
+                <a href="#footer" onclick="toggleMenu()">Contact</a>
             </div>
         </div>
     </div>
@@ -1815,7 +2024,7 @@
                         standards.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Cereals')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Cereals')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Cereals')">
                             Request Quote
                         </button>
                     </div>
@@ -1828,7 +2037,7 @@
                     <p>High-yield maize suitable for food processing, livestock feed and industrial use.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Maize')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Maize')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Maize')">
                             Request Quote
                         </button>
                     </div>
@@ -1841,7 +2050,7 @@
                     <p>Organic and sustainable millets with high nutritional value and export packaging.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Millets')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Millets')">
+                        <button class="quote-btn" onclick="openEnquiry(event,'Millets')">
                             Request Quote
                         </button>
                     </div>
@@ -1855,7 +2064,7 @@
                     </p>
                     <div class="product-buttons">
                         <button onclick="openModal('Cotton')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Cotton')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Cotton')">
                             Request Quote
                         </button>
                     </div>
@@ -1873,7 +2082,7 @@
                     <p>Carefully sorted and packaged export-quality seasonal fruits.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Fresh Fruits')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Fresh Fruits')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Fresh Fruits')">
                             Request Quote
                         </button>
                     </div>
@@ -1886,7 +2095,7 @@
                     <p>Freshly harvested vegetables maintained under strict quality control.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Fresh Vegetables')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Fresh Vegetables')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Fresh Vegetables')">
                             Request Quote
                         </button>
                     </div>
@@ -1899,7 +2108,7 @@
                     <p>Premium coconuts and coconut-based products for global distribution.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Coconut')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Coconut')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Coconut')">
                             Request Quote
                         </button>
                     </div>
@@ -1912,7 +2121,7 @@
                     <p>Rich aroma coffee beans sourced from trusted plantations.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Coffee')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Coffee')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Coffee')">
                             Request Quote
                         </button>
                     </div>
@@ -1930,7 +2139,7 @@
                     <p>Export-grade cashews processed in hygienic facilities and export packaging.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Cashew')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Cashew')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Cashew')">
                             Request Quote
                         </button>
                     </div>
@@ -1943,7 +2152,7 @@
                     <p>Premium quality groundnuts suitable for oil extraction and food industries.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Ground Nut')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Ground Nut')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Ground Nut')">
                             Request Quote
                         </button>
                     </div>
@@ -1956,7 +2165,7 @@
                     <p>High-quality spices meeting global export and packaging standards.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Spices')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Spices')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Spices')">
                             Request Quote
                         </button>
                     </div>
@@ -1974,7 +2183,7 @@
                     <p>High purity groundnut oil processed using advanced refining methods.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Ground Nut Oil')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Ground Nut Oil')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Ground Nut Oil')">
                             Request Quote
                         </button>
                     </div>
@@ -1987,7 +2196,7 @@
                     <p>Refined sunflower oil suitable for cooking and industrial applications.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Sunflower Oil')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Sunflower Oil')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Sunflower Oil')">
                             Request Quote
                         </button>
                     </div>
@@ -2006,7 +2215,7 @@
                         standards.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Poultry Meat')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Poultry Meat')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Poultry Meat')">
                             Request Quote
                         </button>
                     </div>
@@ -2019,7 +2228,7 @@
                     <p>High-quality fresh and table eggs sourced from certified farms with export-grade packaging.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Eggs')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Eggs')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Eggs')">
                             Request Quote
                         </button>
                     </div>
@@ -2032,7 +2241,7 @@
                     <p>Export-grade processed chicken cuts with hygienic packaging and cold chain logistics.</p>
                     <div class="product-buttons">
                         <button onclick="openModal('Chicken Cuts')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Chicken Cuts')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Chicken Cuts')">
                             Request Quote
                         </button>
                     </div>
@@ -2051,7 +2260,7 @@
                     </p>
                     <div class="product-buttons">
                         <button onclick="openModal('Milk Powder')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Milk Powder')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Milk Powder')">
                             Request Quote
                         </button>
                     </div>
@@ -2066,7 +2275,7 @@
                     </p>
                     <div class="product-buttons">
                         <button onclick="openModal('Butter')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Butter')">
+                        <button class="quote-btn" onclick="openEnquiry(event, 'Butter')">
                             Request Quote
                         </button>
                     </div>
@@ -2081,7 +2290,7 @@
                     </p>
                     <div class="product-buttons">
                         <button onclick="openModal('Cheese')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry('Cheese')">
+                        <button class="quote-btn" onclick="openEnquiry(event,'Cheese')">
                             Request Quote
                         </button>
                     </div>
@@ -2478,15 +2687,8 @@
 
             <h2 id="modalTitle"></h2>
 
-            <p id="modalDescription">
-                Product details will appear here.
-            </p>
+            <div id="modalDescription"></div>
 
-            <div class="modal-buttons">
-                <a id="modalWhatsapp" target="_blank" class="quote-btn">
-                    Request Quote
-                </a>
-            </div>
         </div>
 
     </div>
@@ -2537,7 +2739,301 @@
 
     <script>
 
-        /* FILTER FUNCTION */
+        /* ============================
+           PRODUCT DATA
+        ============================ */
+        const descriptions = {
+
+            cereals: {
+                emoji: "🌾",
+                image: "images/cerals.jpg",
+                text: "Premium export-grade cereals sourced from certified farms and processed to international standards.",
+                items: [
+                    "Basmati Rice",
+                    "Non-Basmati Rice",
+                    "Broken Rice",
+                    "Green Gram",
+                    "Black Gram",
+                    "Toor Dal",
+                    "Chana Dal"
+                ],
+                moq: "25 Metric Tons",
+                packaging: "25kg / 50kg PP Bags | Custom Private Label",
+                markets: "🇦🇪 UAE  🇸🇦 Saudi Arabia  🇲🇾 Malaysia  🇦🇫 Afghanistan"
+            },
+
+            maize: {
+                emoji: "🌽",
+                image: "images/corn.jpg",
+                text: "High-yield maize suitable for food processing, livestock feed and industrial applications.",
+                items: [
+                    "Yellow Maize",
+                    "White Maize",
+                    "Maize Flour",
+                    "Maize Grits",
+                    "Animal Feed Grade Maize"
+                ],
+                moq: "20 Metric Tons",
+                packaging: "50kg Bags | Bulk Container Load",
+                markets: "🇰🇪 Kenya  🇹🇿 Tanzania  🇪🇬 Egypt"
+            },
+
+            millets: {
+                emoji: "🌾",
+                image: "images/millets.png",
+                text: "Organic and sustainable millets rich in nutrition and processed for global export.",
+                items: [
+                    "Finger Millet (Ragi)",
+                    "Pearl Millet (Bajra)",
+                    "Foxtail Millet",
+                    "Little Millet",
+                    "Kodo Millet"
+                ],
+                moq: "20 Metric Tons",
+                packaging: "25kg / 50kg Bags",
+                markets: "🇩🇪 Germany  🇫🇷 France  🇳🇱 Netherlands"
+            },
+
+            cotton: {
+                emoji: "🧵",
+                image: "images/cotton.jpg",
+                text: "High-quality raw cotton meeting international textile manufacturing standards.",
+                items: [
+                    "Raw Cotton",
+                    "Cotton Bales",
+                    "Cotton Seeds"
+                ],
+                moq: "50 Metric Tons",
+                packaging: "Compressed Bales",
+                markets: "🇧🇩 Bangladesh  🇻🇳 Vietnam  🇨🇳 China"
+            },
+
+            poultrymeat: {
+                emoji: "🐔",
+                image: "images/meat.jpg",
+                text: "Premium frozen and chilled poultry meat processed under strict hygiene and export standards.",
+                items: [
+                    "Whole Chicken",
+                    "Chicken Breast",
+                    "Drumsticks",
+                    "Wings",
+                    "Chicken Liver"
+                ],
+                moq: "15 Metric Tons",
+                packaging: "Frozen Cartons | Cold Chain",
+                markets: "🇶🇦 Qatar  🇴🇲 Oman  🇧🇭 Bahrain"
+            },
+
+            eggs: {
+                emoji: "🥚",
+                image: "images/eggs.jpg",
+                text: "Farm fresh eggs packed under export-grade standards.",
+                items: [
+                    "White Eggs",
+                    "Brown Eggs",
+                    "Organic Eggs"
+                ],
+                moq: "1 Container Load",
+                packaging: "Trays & Cartons",
+                markets: "🇦🇪 UAE  🇸🇦 Saudi Arabia"
+            },
+
+            milkpowder: {
+                emoji: "🥛",
+                image: "images/milkpowder.jpg",
+                text: "High-quality skimmed and whole milk powder for international dairy supply.",
+                items: [
+                    "Skimmed Milk Powder",
+                    "Whole Milk Powder",
+                    "Instant Milk Powder"
+                ],
+                moq: "10 Metric Tons",
+                packaging: "25kg Bags",
+                markets: "🇳🇬 Nigeria  🇬🇭 Ghana"
+            },
+
+            butter: {
+                emoji: "🧈",
+                image: "images/butter.jpg",
+                text: "Premium quality butter with rich taste and extended shelf life.",
+                items: [
+                    "Salted Butter",
+                    "Unsalted Butter"
+                ],
+                moq: "10 Metric Tons",
+                packaging: "Blocks & Cartons",
+                markets: "🇰🇼 Kuwait  🇶🇦 Qatar"
+            },
+
+            cheese: {
+                emoji: "🧀",
+                image: "images/cheese.jpg",
+                text: "Processed and natural cheese varieties meeting global standards.",
+                items: [
+                    "Mozzarella",
+                    "Cheddar",
+                    "Processed Cheese Blocks"
+                ],
+                moq: "10 Metric Tons",
+                packaging: "Vacuum Packs & Blocks",
+                markets: "🇸🇦 Saudi Arabia  🇦🇪 UAE"
+            },
+
+            coconut: {
+                emoji: "🥥",
+                image: "images/coconuts.jpg",
+                text: "Premium coconuts and coconut-based products for global distribution.",
+                items: [
+                    "Whole Coconut",
+                    "Coconut Oil",
+                    "Desiccated Coconut",
+                    "Coconut Shell Charcoal"
+                ],
+                moq: "20 Metric Tons",
+                packaging: "PP Bags | Drums",
+                markets: "🇲🇾 Malaysia  🇹🇭 Thailand"
+            },
+
+            coffee: {
+                emoji: "☕",
+                image: "images/coffee-1.jpg",
+                text: "Rich aroma coffee beans sourced from certified plantations.",
+                items: [
+                    "Arabica Beans",
+                    "Robusta Beans",
+                    "Roasted Coffee",
+                    "Green Coffee Beans"
+                ],
+                moq: "15 Metric Tons",
+                packaging: "Jute Bags | Vacuum Packs",
+                markets: "🇮🇹 Italy  🇩🇪 Germany"
+            },
+
+            cashew: {
+                emoji: "🌰",
+                image: "images/cashew.jpg",
+                text: "Export-grade cashews processed in hygienic facilities.",
+                items: [
+                    "W180",
+                    "W240",
+                    "W320",
+                    "Broken Cashews"
+                ],
+                moq: "10 Metric Tons",
+                packaging: "Vacuum Sealed Tins",
+                markets: "🇺🇸 USA  🇨🇦 Canada"
+            },
+
+            spices: {
+                emoji: "🌶️",
+                image: "images/spices.jpg",
+                text: "Premium quality spices meeting global export standards.",
+                items: [
+                    "Red Chilli",
+                    "Turmeric",
+                    "Coriander",
+                    "Cumin",
+                    "Black Pepper"
+                ],
+                moq: "10 Metric Tons",
+                packaging: "25kg Bags | Customized Packs",
+                markets: "🇬🇧 UK  🇦🇺 Australia"
+            },
+
+            sunfloweroil: {
+                emoji: "🌻",
+                image: "images/oil-2.jpg",
+                text: "Refined sunflower oil suitable for cooking and industrial use.",
+                items: [
+                    "1L Bottles",
+                    "5L Cans",
+                    "Bulk Drums"
+                ],
+                moq: "1 Container Load",
+                packaging: "PET Bottles | Drums",
+                markets: "🇦🇫 Afghanistan  🇮🇶 Iraq"
+            },
+
+            groundnutoil: {
+                emoji: "🥜",
+                image: "images/oil-1.jpg",
+                text: "High purity groundnut oil processed using advanced refining techniques.",
+                items: [
+                    "Cold Pressed",
+                    "Refined Groundnut Oil"
+                ],
+                moq: "1 Container Load",
+                packaging: "PET Bottles | Bulk Drums",
+                markets: "🇳🇵 Nepal  🇱🇰 Sri Lanka"
+            },
+
+            groundnut: {
+                emoji: "🥜",
+                image: "images/groundnuts.jpg",
+                text: "Premium quality groundnuts for oil extraction and direct consumption.",
+                items: [
+                    "Raw Groundnuts",
+                    "Roasted Groundnuts",
+                    "Blanched Groundnuts"
+                ],
+                moq: "20 Metric Tons",
+                packaging: "PP Bags",
+                markets: "🇨🇳 China  🇮🇩 Indonesia"
+            },
+
+            freshvegetables: {
+                emoji: "🥦",
+                image: "images/vegtables.jpg",
+                text: "Fresh vegetables maintained under strict quality control and cold storage.",
+                items: [
+                    "Onions",
+                    "Tomatoes",
+                    "Carrots",
+                    "Potatoes"
+                ],
+                moq: "1 Container Load",
+                packaging: "Mesh Bags | Cartons",
+                markets: "🇲🇾 Malaysia  🇸🇬 Singapore"
+            },
+
+            freshfruits: {
+                emoji: "🍎",
+                image: "images/fruits.jpg",
+                text: "Carefully sorted and export-quality seasonal fruits.",
+                items: [
+                    "Mangoes",
+                    "Bananas",
+                    "Apples",
+                    "Oranges",
+                    "Pomegranates"
+                ],
+                moq: "1 Container Load",
+                packaging: "Cartons | Crates",
+                markets: "🇦🇪 UAE  🇬🇧 UK"
+            },
+
+            chickencuts: {
+                emoji: "🍗",
+                image: "images/processed-chicken.jpg",
+                text: "Premium quality processed chicken products, hygienically packed and export-ready.",
+                items: [
+                    "Whole Chicken",
+                    "Chicken Breast",
+                    "Chicken Thighs",
+                    "Chicken Wings",
+                    "Chicken Drumsticks",
+                    "Frozen Chicken Cuts"
+                ],
+                moq: "1 Container Load",
+                packaging: "Vacuum Pack | Frozen Cartons",
+                markets: "🇦🇪 UAE  🇬🇧 UK  🇸🇦 Saudi Arabia"
+            }
+        };
+
+        /* ============================
+           FILTER FUNCTION
+        ============================ */
+
         function filterProducts(category) {
             const grids = document.querySelectorAll('.product-grid');
             const buttons = document.querySelectorAll('.filter-btn');
@@ -2546,69 +3042,117 @@
             event.target.classList.add('active');
 
             grids.forEach(grid => {
-                if (category === 'all') {
+                if (category === 'all' || grid.classList.contains(category)) {
                     grid.style.display = 'grid';
                 } else {
-                    if (grid.classList.contains(category)) {
-                        grid.style.display = 'grid';
-                    } else {
-                        grid.style.display = 'none';
-                    }
+                    grid.style.display = 'none';
                 }
             });
         }
 
 
-        /* MODAL */
+        /* ============================
+           OPEN MODAL
+        ============================ */
+
         function openModal(product) {
 
-            const descriptions = {
-                cereals: "Premium export-grade cereals sourced from certified farms and processed to international standards.",
-                maize: "High-yield maize suitable for food processing, livestock feed and industrial use.",
-                millets: "Organic and sustainable millets with high nutritional value and export packaging.",
-                cotton: "High-quality raw cotton meeting global textile manufacturing requirements.",
-                poultry: "Premium frozen and chilled poultry meat processed under strict hygiene and export standards.",
-                eggs: "Farm fresh eggs with export-grade packaging and global compliance.",
-                milkpowder: "High-quality skimmed and whole milk powder for bulk international supply.",
-                butter: "Premium export-quality butter with rich taste and long shelf life.",
-                cheese: "High-quality processed and natural cheese varieties meeting international dairy export standards.",
-                coconut: "Premium coconuts and coconut-based products for global distribution.",
-                coffee: "Rich aroma coffee beans sourced from trusted plantations.",
-                cashew: "Export-grade cashews processed in hygienic facilities.",
-                spices: "High-quality spices meeting global export and packaging standards.",
-                chickencuts: "Export-grade processed chicken cuts with hygienic packaging and cold chain logistics.",
-                poultrymilk: "Premium quality frozen and chilled poultry meat processed under strict hygiene and international export standards.",
-                sunfloweroil: "Refined sunflower oil suitable for cooking and industrial applications.",
-                groundnutoil: "High purity groundnut oil processed using advanced refining methods.",
-                groundnut: "Premium quality groundnuts suitable for oil extraction and food industries.",
-                freshvegetables: "Freshly harvested vegetables maintained under strict quality control.",
-                freshfruits: "Carefully sorted and packaged export-quality seasonal fruits."
-
-            };
+            const key = product.replace(/\s+/g, '').toLowerCase();
+            const data = descriptions[key];
 
             document.getElementById("productModal").style.display = "flex";
-            document.getElementById("modalTitle").innerText = product;
 
-            const key = product.replace(/\s+/g, '').toLowerCase();
+            if (data) {
 
-            document.getElementById("modalDescription").innerText =
-                descriptions[key] || "Product details available upon request.";
+                document.getElementById("modalTitle").innerHTML =
+                    data.emoji + " " + product;
 
-            document.getElementById("modalWhatsapp").href =
-                "https://wa.me/919502345686?text=I%20am%20interested%20in%20" + product;
-        }
-        function closeModal() {
-            document.getElementById("productModal").style.display = "none";
-        }
+                let html = `
+            <div class="modal-content-wrapper">
+                <div class="modal-image">
+                    <img src="${data.image}" alt="${product}">
+                </div>
 
-        /* Close when clicking outside */
-        window.onclick = function (event) {
-            const modal = document.getElementById("productModal");
-            if (event.target === modal) {
-                closeModal();
+                <div class="modal-info">
+                    <p>${data.text}</p>
+
+                    <h4>Available Products:</h4>
+                    <ul class="modal-list">
+        `;
+
+                data.items.forEach(item => {
+                    html += `<li>✔ ${item}</li>`;
+                });
+
+                html += `
+                    </ul>
+
+                    <div class="export-details">
+                        <p><strong>MOQ:</strong> ${data.moq}</p>
+                        <p><strong>Packaging:</strong> ${data.packaging}</p>
+                        <p><strong>Export Markets:</strong> ${data.markets}</p>
+                    </div>
+
+                    <button class="quote-btn" onclick="openEnquiry(event, '${product}')">
+                        Request Quote
+                    </button>
+
+                </div>
+            </div>
+        `;
+
+                document.getElementById("modalDescription").innerHTML = html;
+
+            } else {
+                document.getElementById("modalTitle").innerText = product;
+                document.getElementById("modalDescription").innerHTML =
+                    "<p>Product details available upon request.</p>";
             }
         }
-        /* SCROLL ANIMATION */
+
+        function openEnquiry(event, product) {
+
+            event.stopPropagation();
+
+            closeModal();
+
+            setTimeout(() => {
+
+                const enquirySection = document.getElementById("booking");
+
+                if (enquirySection) {
+                    enquirySection.scrollIntoView({ behavior: "smooth" });
+                }
+
+                const productInput = document.getElementById("productField");
+                if (productInput) {
+                    productInput.value = product;
+                }
+
+            }, 100);
+        }
+        /* ============================
+           CLOSE MODAL
+        ============================ */
+
+        function closeModal() {
+            const modal = document.getElementById("productModal");
+            if (modal) {
+                modal.style.display = "none";
+            }
+        }
+        document.getElementById("productModal").addEventListener("click", function (e) {
+
+            if (e.target === this) {
+                closeModal();
+            }
+
+        });
+
+        /* ============================
+           SCROLL ANIMATION
+        ============================ */
+
         window.addEventListener("scroll", function () {
             const reveals = document.querySelectorAll(".reveal");
 
@@ -2912,10 +3456,6 @@
         </div>
 
     </div>
-
-    <audio id="chatSound">
-        <source src="https://www.soundjay.com/buttons/sounds/button-3.mp3" type="audio/mpeg">
-    </audio>
     <script>
         const countrySelect = document.getElementById('countryCodeSelect');
         const otherInput = document.getElementById('otherCountryCode');
@@ -2929,14 +3469,6 @@
         });
     </script>
 
-    <script>
-        function openEnquiry(productName) {
-            document.getElementById("booking").scrollIntoView({ behavior: "smooth" });
-
-            const productDropdown = document.getElementById("product");
-            productDropdown.value = productName;
-        }
-    </script>
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 
