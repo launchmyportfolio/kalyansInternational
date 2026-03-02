@@ -508,6 +508,7 @@
             background: #C9A227;
             color: white;
         }
+
         /* MODAL */
         .modal {
             display: none;
@@ -535,30 +536,6 @@
             float: right;
             font-size: 22px;
             cursor: pointer;
-        }
-
-        /* Scroll Animation */
-        .reveal {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: all 0.6s ease;
-        }
-
-        .reveal.active {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: scale(0.9);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
         }
 
         /* ===== SERVICES SECTION ===== */
@@ -973,138 +950,25 @@
             }
         }
 
-        /* ===== FOOTER ===== */
-
-        .footer {
-            background: #0B1F3A;
-            color: white;
-            padding: 60px 0 20px;
-        }
-
-        .footer-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: space-between;
-        }
-
-        .footer-col {
-            flex: 1;
-            min-width: 220px;
-        }
-
-        .footer-col h3,
-        .footer-col h4 {
-            margin-bottom: 15px;
-            color: #C9A227;
-        }
-
-        .footer-col p,
-        .footer-col li {
-            font-size: 14px;
-            margin-bottom: 8px;
-            color: #ddd;
-        }
-
-        .footer-col ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .footer-col a {
-            text-decoration: none;
-            color: #ddd;
-            transition: 0.3s;
-        }
-
-        .footer-col a:hover {
-            color: #C9A227;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.2);
-            font-size: 13px;
-        }
-
-        /* Live Chat Button */
-        .live-chat-btn {
-            padding: 10px 15px;
-            border: none;
-            background: #C9A227;
-            color: white;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        /* Floating WhatsApp */
-        .floating-whatsapp {
+        .floating-call {
             position: fixed;
-            bottom: 20px;
+            bottom: 100px;
             right: 20px;
-            background: #25D366;
-            color: white;
-            font-size: 24px;
-            width: 55px;
-            height: 55px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            background: #0B1F3A;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
-            text-decoration: none;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-            z-index: 999;
-        }
-
-        /* Live Chat Popup */
-        .live-chat-box {
-            display: none;
-            position: fixed;
-            bottom: 90px;
-            right: 20px;
-            width: 300px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            z-index: 999;
-        }
-
-        .live-chat-header {
-            background: #0B1F3A;
-            color: white;
-            padding: 10px;
-            font-size: 14px;
             display: flex;
-            justify-content: space-between;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .3);
+            z-index: 1000;
+            transition: .3s;
         }
 
-        .live-chat-body {
-            padding: 15px;
-            font-size: 13px;
-            color: #333;
-        }
-
-        .live-chat-footer {
-            display: flex;
-            border-top: 1px solid #ddd;
-        }
-
-        .live-chat-footer input {
-            flex: 1;
-            padding: 8px;
-            border: none;
-            outline: none;
-        }
-
-        .live-chat-footer button {
+        .floating-call:hover {
+            transform: scale(1.1);
             background: #C9A227;
-            border: none;
-            color: white;
-            padding: 8px 12px;
-            cursor: pointer;
         }
 
         /* Floating WhatsApp */
@@ -1126,144 +990,6 @@
 
         .floating-whatsapp:hover {
             transform: scale(1.1);
-        }
-
-        /* Floating Live Chat ABOVE WhatsApp */
-        .floating-livechat {
-            position: fixed;
-            bottom: 95px;
-            right: 20px;
-            background: #0B1F3A;
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
-            z-index: 1000;
-            transition: 0.3s;
-        }
-
-        .floating-livechat:hover {
-            transform: scale(1.1);
-        }
-
-        /* Live Chat Box */
-        .live-chat-box {
-            display: none;
-            position: fixed;
-            bottom: 170px;
-            right: 20px;
-            width: 320px;
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            z-index: 1000;
-            animation: slideUp 0.3s ease;
-        }
-
-        @keyframes slideUp {
-            from {
-                transform: translateY(20px);
-                opacity: 0;
-            }
-
-            to {
-                transform: translateY(0);
-                opacity: 1;
-            }
-        }
-
-        .live-chat-header {
-            background: #0B1F3A;
-            color: white;
-            padding: 12px;
-            display: flex;
-            justify-content: space-between;
-            font-size: 14px;
-        }
-
-        .live-chat-body {
-            padding: 15px;
-            height: 220px;
-            overflow-y: auto;
-            font-size: 13px;
-        }
-
-        .chat-message {
-            margin-bottom: 10px;
-        }
-
-        .bot {
-            color: #0B1F3A;
-            font-weight: bold;
-        }
-
-        .user {
-            text-align: right;
-            color: #C9A227;
-        }
-
-        .live-chat-footer {
-            display: flex;
-            border-top: 1px solid #ddd;
-        }
-
-        .live-chat-footer input {
-            flex: 1;
-            padding: 8px;
-            border: none;
-            outline: none;
-        }
-
-        .live-chat-footer button {
-            background: #C9A227;
-            border: none;
-            color: white;
-            padding: 8px 12px;
-            cursor: pointer;
-        }
-
-        /* Typing Animation */
-        .typing {
-            display: flex;
-            gap: 4px;
-            padding: 8px 0;
-        }
-
-        .typing span {
-            width: 6px;
-            height: 6px;
-            background: #0B1F3A;
-            border-radius: 50%;
-            animation: blink 1.4s infinite both;
-        }
-
-        .typing span:nth-child(2) {
-            animation-delay: 0.2s;
-        }
-
-        .typing span:nth-child(3) {
-            animation-delay: 0.4s;
-        }
-
-        @keyframes blink {
-            0% {
-                opacity: .2
-            }
-
-            20% {
-                opacity: 1
-            }
-
-            100% {
-                opacity: .2
-            }
         }
 
         .footer {
@@ -1469,64 +1195,6 @@
             color: #8fa4bb;
         }
 
-        .floating-livechat {
-            position: fixed;
-            bottom: 100px;
-            right: 25px;
-            width: 65px;
-            height: 65px;
-            background: linear-gradient(135deg, #d4af37, #b8962e);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-            cursor: pointer;
-            transition: 0.3s;
-            z-index: 999;
-        }
-
-        .floating-livechat:hover {
-            transform: scale(1.1);
-        }
-
-        .phone-group {
-            display: flex;
-            gap: 10px;
-        }
-
-        .country-code-wrapper {
-            width: 120px;
-            /* Small box */
-        }
-
-        .country-code-wrapper select,
-        .country-code-wrapper input {
-            width: 100%;
-            padding: 10px;
-            font-size: 14px;
-        }
-
-        .phone-input {
-            flex: 1;
-            /* Bigger box */
-            padding: 10px;
-            font-size: 14px;
-        }
-
-        /* MODAL BACKGROUND */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 999;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            justify-content: center;
-            align-items: center;
-        }
 
         /* MODAL BOX */
         .modal-content {
@@ -1887,7 +1555,34 @@
                 background: #162d66;
             }
         }
-        
+
+        .modal-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .sub-product {
+            text-align: center;
+            background: #f7f7f7;
+            padding: 10px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .sub-product img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-bottom: 5px;
+        }
+
+        .sub-product:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+        }
     </style>
 </head>
 
@@ -1912,8 +1607,8 @@
                 <a href="#about" onclick="toggleMenu()">About</a>
                 <a href="#products" onclick="toggleMenu()">Products</a>
                 <a href="#services" onclick="toggleMenu()">Services</a>
-                <a href="#gallery" onclick="toggleMenu()">Gallery</a>
                 <a href="#booking" onclick="toggleMenu()">Enquire</a>
+                <a href="#gallery" onclick="toggleMenu()">Gallery</a>
                 <a href="#footer" onclick="toggleMenu()">Contact</a>
             </div>
         </div>
@@ -2222,20 +1917,6 @@
                         </button>
                     </div>
                 </div>
-
-                <div class="product-card reveal">
-                    <div class="badge">Processed Cuts</div>
-                    <img src="images/processed-chicken.jpg">
-                    <h4>Processed Chicken Cuts</h4>
-                    <p>Export-grade processed chicken cuts with hygienic packaging and cold chain logistics.</p>
-                    <div class="product-buttons">
-                        <button onclick="openModal('Chicken Cuts')">View Details</button>
-                        <button class="quote-btn" onclick="openEnquiry(event, 'Chicken Cuts')">
-                            Request Quote
-                        </button>
-                    </div>
-                </div>
-
             </div>
 
             <!-- ================= DAIRY ================= -->
@@ -2738,13 +2419,26 @@
                 image: "images/cerals.jpg",
                 text: "Premium export-grade cereals sourced from certified farms and processed to international standards.",
                 items: [
-                    "Basmati Rice",
-                    "Non-Basmati Rice",
-                    "Broken Rice",
-                    "Green Gram",
-                    "Black Gram",
-                    "Toor Dal",
-                    "Chana Dal"
+                    {
+                        name: "Basmati Rice",
+                        image: "images/basmathi.jpg"
+                    },
+                    {
+                        name: "Non-Basmati Rice",
+                        image: "images/non-basmathi.jpg"
+                    },
+                    {
+                        name: "Broken Rice",
+                        image: "images/broken-rice.jpg"
+                    },
+                    {
+                        name: "Green Gram",
+                        image: "images/green-gram.jpg"
+                    },
+                    {
+                        name: "Black Gram",
+                        image: "images/black-gram.jpg"
+                    }
                 ],
                 moq: "25 Metric Tons",
                 packaging: "25kg / 50kg PP Bags | Custom Private Label",
@@ -2756,11 +2450,18 @@
                 image: "images/corn.jpg",
                 text: "High-yield maize suitable for food processing, livestock feed and industrial applications.",
                 items: [
-                    "Yellow Maize",
-                    "White Maize",
-                    "Maize Flour",
-                    "Maize Grits",
-                    "Animal Feed Grade Maize"
+                    {
+                        name: "Yellow Maize",
+                        image: "images/yellow-maize.jpg"
+                    },
+                    {
+                        name: "Maize Flour",
+                        image: "images/flour.jpg"
+                    },
+                    {
+                        name: "Maize Grits",
+                        image: "images/grits.jpg"
+                    },
                 ],
                 moq: "20 Metric Tons",
                 packaging: "50kg Bags | Bulk Container Load",
@@ -2772,11 +2473,18 @@
                 image: "images/millets.png",
                 text: "Organic and sustainable millets rich in nutrition and processed for global export.",
                 items: [
-                    "Finger Millet (Ragi)",
-                    "Pearl Millet (Bajra)",
-                    "Foxtail Millet",
-                    "Little Millet",
-                    "Kodo Millet"
+                    {
+                        name: "Finger Millet (Ragi)",
+                        image: "images/ragi.jpg"
+                    },
+                    {
+                        name: "Pearl Millet (Bajra)",
+                        image: "images/bajra.jpg"
+                    },
+                    {
+                        name: "Kodo Millet",
+                        image: "images/koda.jpg"
+                    }
                 ],
                 moq: "20 Metric Tons",
                 packaging: "25kg / 50kg Bags",
@@ -2788,9 +2496,18 @@
                 image: "images/cotton.jpg",
                 text: "High-quality raw cotton meeting international textile manufacturing standards.",
                 items: [
-                    "Raw Cotton",
-                    "Cotton Bales",
-                    "Cotton Seeds"
+                    {
+                        name: "Raw Cotton",
+                        image: "images/raw-cotton.jpg"
+                    },
+                    {
+                        name: "Cotton Bales",
+                        image: "images/bales.jpg"
+                    },
+                    {
+                        name: "Cotton Seeds",
+                        image: "images/seeds.jpg"
+                    }
                 ],
                 moq: "50 Metric Tons",
                 packaging: "Compressed Bales",
@@ -2802,11 +2519,18 @@
                 image: "images/meat.jpg",
                 text: "Premium frozen and chilled poultry meat processed under strict hygiene and export standards.",
                 items: [
-                    "Whole Chicken",
-                    "Chicken Breast",
-                    "Drumsticks",
-                    "Wings",
-                    "Chicken Liver"
+                    {
+                        name: "Whole Chicken",
+                        image: "images/meat.jpg"
+                    },
+                    {
+                        name: "Chicken Breast",
+                        image: "images/processed-chicken.jpg"
+                    },
+                    {
+                        name: "Wings",
+                        image: "images/wings.webp"
+                    }
                 ],
                 moq: "15 Metric Tons",
                 packaging: "Frozen Cartons | Cold Chain",
@@ -2818,9 +2542,18 @@
                 image: "images/eggs.jpg",
                 text: "Farm fresh eggs packed under export-grade standards.",
                 items: [
-                    "White Eggs",
-                    "Brown Eggs",
-                    "Organic Eggs"
+                    {
+                        name: "White Eggs",
+                        image: "images/white.webp"
+                    },
+                    {
+                        name: "Brown Eggs",
+                        image: "images/brown.webp"
+                    },
+                    {
+                        name: "Organic Eggs",
+                        image: "images/organic.jpg"
+                    }
                 ],
                 moq: "1 Container Load",
                 packaging: "Trays & Cartons",
@@ -2829,12 +2562,21 @@
 
             milkpowder: {
                 emoji: "🥛",
-                image: "images/milkpowder.jpg",
+                image: "images/milk-powder.jpg",
                 text: "High-quality skimmed and whole milk powder for international dairy supply.",
                 items: [
-                    "Skimmed Milk Powder",
-                    "Whole Milk Powder",
-                    "Instant Milk Powder"
+                    {
+                        name: "Skimmed Milk Powder",
+                        image: "images/milk1.jpg"
+                    },
+                    {
+                        name: "Whole Milk Powder",
+                        image: "images/milk2.jpg"
+                    },
+                    {
+                        name: "Instant Milk Powder",
+                        image: "images/milk3.jpg"
+                    }
                 ],
                 moq: "10 Metric Tons",
                 packaging: "25kg Bags",
@@ -2846,8 +2588,14 @@
                 image: "images/butter.jpg",
                 text: "Premium quality butter with rich taste and extended shelf life.",
                 items: [
-                    "Salted Butter",
-                    "Unsalted Butter"
+                    {
+                        name: "Salted Butter",
+                        image: "images/butter1.jpg"
+                    },
+                    {
+                        name: "Unsalted Butter",
+                        image: "images/butter2.jpg"
+                    }
                 ],
                 moq: "10 Metric Tons",
                 packaging: "Blocks & Cartons",
@@ -2859,9 +2607,18 @@
                 image: "images/cheese.jpg",
                 text: "Processed and natural cheese varieties meeting global standards.",
                 items: [
-                    "Mozzarella",
-                    "Cheddar",
-                    "Processed Cheese Blocks"
+                    {
+                        name: "Mozzarella",
+                        image: "images/cheese-1.jpg"
+                    },
+                    {
+                        name: "Cheddar",
+                        image: "images/cheese-2.jpg"
+                    },
+                    {
+                        name: "Processed Cheese Blocks",
+                        image: "images/cheese-3.jpg"
+                    }
                 ],
                 moq: "10 Metric Tons",
                 packaging: "Vacuum Packs & Blocks",
@@ -2873,10 +2630,18 @@
                 image: "images/coconuts.jpg",
                 text: "Premium coconuts and coconut-based products for global distribution.",
                 items: [
-                    "Whole Coconut",
-                    "Coconut Oil",
-                    "Desiccated Coconut",
-                    "Coconut Shell Charcoal"
+                    {
+                        name: "Whole Coconut",
+                        image: "images/coconuts.jpg"
+                    },
+                    {
+                        name: "Coconut Oil",
+                        image: "images/oil-1.jpg"
+                    },
+                    {
+                        name: "Desiccated Coconut",
+                        image: "images/coc.jpg"
+                    }
                 ],
                 moq: "20 Metric Tons",
                 packaging: "PP Bags | Drums",
@@ -2888,10 +2653,14 @@
                 image: "images/coffee-1.jpg",
                 text: "Rich aroma coffee beans sourced from certified plantations.",
                 items: [
-                    "Arabica Beans",
-                    "Robusta Beans",
-                    "Roasted Coffee",
-                    "Green Coffee Beans"
+                    {
+                        name: "Arabica Beans",
+                        image: "images/arabica.jpg"
+                    },
+                    {
+                        name: "Roasted Coffee",
+                        image: "images/coffee-1.jpg"
+                    }
                 ],
                 moq: "15 Metric Tons",
                 packaging: "Jute Bags | Vacuum Packs",
@@ -2903,10 +2672,22 @@
                 image: "images/cashew.jpg",
                 text: "Export-grade cashews processed in hygienic facilities.",
                 items: [
-                    "W180",
-                    "W240",
-                    "W320",
-                    "Broken Cashews"
+                    {
+                        name: "W180",
+                        image: "images/cashew-11.jpg"
+                    },
+                    {
+                        name: "W240",
+                        image: "images/cashew-12.jpg"
+                    },
+                    {
+                        name: "W320",
+                        image: "images/cashew-13.jpg"
+                    },
+                    {
+                        name: "Broken Cashews",
+                        image: "images/cashew-14.jpg"
+                    }
                 ],
                 moq: "10 Metric Tons",
                 packaging: "Vacuum Sealed Tins",
@@ -2918,11 +2699,22 @@
                 image: "images/spices.jpg",
                 text: "Premium quality spices meeting global export standards.",
                 items: [
-                    "Red Chilli",
-                    "Turmeric",
-                    "Coriander",
-                    "Cumin",
-                    "Black Pepper"
+                    {
+                        name: "Red Chilli",
+                        image: "images/spices-1.jpg"
+                    },
+                    {
+                        name: "Turmeric",
+                        image: "images/spices-3.jpg"
+                    },
+                    {
+                        name: "Coriander",
+                        image: "images/spices-2.jpg"
+                    },
+                    {
+                        name: "Cumin",
+                        image: "images/spices-4.jpg"
+                    }
                 ],
                 moq: "10 Metric Tons",
                 packaging: "25kg Bags | Customized Packs",
@@ -2934,9 +2726,14 @@
                 image: "images/oil-2.jpg",
                 text: "Refined sunflower oil suitable for cooking and industrial use.",
                 items: [
-                    "1L Bottles",
-                    "5L Cans",
-                    "Bulk Drums"
+                    {
+                        name: "1L Bottles",
+                        image: "images/oil-1.jpg"
+                    },
+                    {
+                        name: "5L Cans",
+                        image: "images/oil-2.jpg"
+                    }
                 ],
                 moq: "1 Container Load",
                 packaging: "PET Bottles | Drums",
@@ -2948,8 +2745,14 @@
                 image: "images/oil-1.jpg",
                 text: "High purity groundnut oil processed using advanced refining techniques.",
                 items: [
-                    "Cold Pressed",
-                    "Refined Groundnut Oil"
+                    {
+                        name: "Cold Pressed",
+                        image: "images/oil-1.jpg"
+                    },
+                    {
+                        name: "Refined Groundnut Oil",
+                        image: "images/oil-2.jpg"
+                    }
                 ],
                 moq: "1 Container Load",
                 packaging: "PET Bottles | Bulk Drums",
@@ -2961,9 +2764,18 @@
                 image: "images/groundnuts.jpg",
                 text: "Premium quality groundnuts for oil extraction and direct consumption.",
                 items: [
-                    "Raw Groundnuts",
-                    "Roasted Groundnuts",
-                    "Blanched Groundnuts"
+                    {
+                        name: "Raw Groundnuts",
+                        image: "images/ground3.jpg"
+                    },
+                    {
+                        name: "Roasted Groundnuts",
+                        image: "images/ground1.jpg"
+                    },
+                    {
+                        name: "Blanched Groundnuts",
+                        image: "images/ground2.jpg"
+                    }
                 ],
                 moq: "20 Metric Tons",
                 packaging: "PP Bags",
@@ -2975,10 +2787,22 @@
                 image: "images/vegtables.jpg",
                 text: "Fresh vegetables maintained under strict quality control and cold storage.",
                 items: [
-                    "Onions",
-                    "Tomatoes",
-                    "Carrots",
-                    "Potatoes"
+                    {
+                        name: "Onions",
+                        image: "images/onion.jpg"
+                    },
+                    {
+                        name: "Tomatoes",
+                        image: "images/tomato.jpg"
+                    },
+                    {
+                        name: "Carrots",
+                        image: "images/carrot.jpg"
+                    },
+                    {
+                        name: "Potatoes",
+                        image: "images/potatos.jpg"
+                    }
                 ],
                 moq: "1 Container Load",
                 packaging: "Mesh Bags | Cartons",
@@ -2990,11 +2814,22 @@
                 image: "images/fruits.jpg",
                 text: "Carefully sorted and export-quality seasonal fruits.",
                 items: [
-                    "Mangoes",
-                    "Bananas",
-                    "Apples",
-                    "Oranges",
-                    "Pomegranates"
+                    {
+                        name: "Mangoes",
+                        image: "images/mango.jpg"
+                    },
+                    {
+                        name: "Bananas",
+                        image: "images/banana.jpg"
+                    },
+                    {
+                        name: "Apples",
+                        image: "images/apples.jpg"
+                    },
+                    {
+                        name: "Oranges",
+                        image: "images/oranges.jpg"
+                    }
                 ],
                 moq: "1 Container Load",
                 packaging: "Cartons | Crates",
@@ -3006,12 +2841,30 @@
                 image: "images/processed-chicken.jpg",
                 text: "Premium quality processed chicken products, hygienically packed and export-ready.",
                 items: [
-                    "Whole Chicken",
-                    "Chicken Breast",
-                    "Chicken Thighs",
-                    "Chicken Wings",
-                    "Chicken Drumsticks",
-                    "Frozen Chicken Cuts"
+                    {
+                        name: "Whole Chicken",
+                        image: "images/whole-chicken.jpg"
+                    },
+                    {
+                        name: "Chicken Breast",
+                        image: "images/chicken-breast.jpg"
+                    },
+                    {
+                        name: "Chicken Thighs",
+                        image: "images/chicken-thighs.jpg"
+                    },
+                    {
+                        name: "Chicken Wings",
+                        image: "images/chicken-wings.jpg"
+                    },
+                    {
+                        name: "Chicken Drumsticks",
+                        image: "images/chicken-drumsticks.jpg"
+                    },
+                    {
+                        name: "Frozen Chicken Cuts",
+                        image: "images/frozen-chicken-cuts.jpg"
+                    }
                 ],
                 moq: "1 Container Load",
                 packaging: "Vacuum Pack | Frozen Cartons",
@@ -3070,7 +2923,12 @@
         `;
 
                 data.items.forEach(item => {
-                    html += `<li>✔ ${item}</li>`;
+                    html += `
+<div class="sub-product">
+    <img src="${item.image}" alt="${item.name}">
+    <span>${item.name}</span>
+</div>
+`;
                 });
 
                 html += `
@@ -3206,215 +3064,19 @@
             });
         });
     </script>
-    <script>
-        let chatData = {
-            full_name: "",
-            company_name: "",
-            email: "",
-            phone: "",
-            country: "",
-            product: "",
-            quantity: "",
-            details: ""
-        };
-
-        let chatStep = 0;
-
-        const chatQuestions = [
-            "Welcome to Kalyans International 🌍 What's your full name?",
-            "Great! Can you provide your company name?",
-            "Please enter your email address:",
-            "What is your phone number?",
-            "Which country are you contacting us from?",
-            "Which product are you interested in?",
-            "How much quantity do you require?",
-            "Any additional details you want us to know?"
-        ];
-
-        const countryOptions = [
-            "United Arab Emirates", "Saudi Arabia", "Qatar", "Oman",
-            "South Africa", "Kenya", "Nigeria", "USA",
-            "United Kingdom", "Germany", "Singapore", "Malaysia",
-            "Australia", "Canada", "India"
-        ];
-
-        const productOptions = [
-            "Cereals", "Maize", "Millets", "Cotton", "Fresh Fruits", "Fresh Vegetables",
-            "Coconut", "Coffee", "Cashew", "Ground Nut", "Spices", "Ground Nut Oil",
-            "Sunflower Oil", "Poultry Meat", "Eggs", "Processed-Chicken", "Milk Powder",
-            "Butter", "Cheese"
-        ];
-
-        function openLiveChat() {
-            document.getElementById("liveChatBox").style.display = "block";
-            startChatFlow();
-        }
-
-        function closeLiveChat() {
-            document.getElementById("liveChatBox").style.display = "none";
-            chatStep = 0;
-            chatData = { full_name: "", company_name: "", email: "", phone: "", country: "", product: "", quantity: "", details: "" };
-            document.getElementById("chatBody").innerHTML = "";
-        }
-
-        function playSound() {
-            const audio = document.getElementById("chatSound");
-            if (audio) audio.play();
-        }
-
-        function startChatFlow() {
-            const chatBody = document.getElementById("chatBody");
-            chatBody.innerHTML = "";
-            botMessage(chatQuestions[chatStep]);
-        }
-
-        function botMessage(text) {
-            const chatBody = document.getElementById("chatBody");
-            showTyping();
-
-            setTimeout(() => {
-                removeTyping();
-
-                const msg = document.createElement("div");
-                msg.className = "chat-message bot";
-                msg.innerText = text;
-                chatBody.appendChild(msg);
-                chatBody.scrollTop = chatBody.scrollHeight;
-                playSound();
-
-                // If step needs dropdown
-                if (chatStep === 4) showDropdown(countryOptions, "country");
-                if (chatStep === 5) showDropdown(productOptions, "product");
-
-            }, 1000);
-        }
-
-        function showTyping() {
-            const typing = document.createElement("div");
-            typing.className = "typing";
-            typing.id = "typingIndicator";
-            typing.innerHTML = "<span></span><span></span><span></span>";
-            document.getElementById("chatBody").appendChild(typing);
-        }
-
-        function removeTyping() {
-            const typing = document.getElementById("typingIndicator");
-            if (typing) typing.remove();
-        }
-
-        function showDropdown(options, type) {
-            const chatBody = document.getElementById("chatBody");
-            const select = document.createElement("select");
-            select.className = "chat-dropdown";
-
-            const placeholder = document.createElement("option");
-            placeholder.text = "Select " + type.charAt(0).toUpperCase() + type.slice(1);
-            placeholder.disabled = true;
-            placeholder.selected = true;
-            select.appendChild(placeholder);
-
-            options.forEach(opt => {
-                const option = document.createElement("option");
-                option.value = opt;
-                option.text = opt;
-                select.appendChild(option);
-            });
-
-            chatBody.appendChild(select);
-            select.focus();
-            chatBody.scrollTop = chatBody.scrollHeight;
-
-            select.addEventListener("change", function () {
-                const value = this.value;
-                if (type === "country") chatData.country = value;
-                if (type === "product") chatData.product = value;
-
-                const msg = document.createElement("div");
-                msg.className = "chat-message user";
-                msg.innerText = value;
-                chatBody.appendChild(msg);
-                chatBody.scrollTop = chatBody.scrollHeight;
-
-                chatStep++;
-                botMessage(chatQuestions[chatStep]);
-            });
-        }
-
-        function sendChat() {
-            const input = document.getElementById("chatInput");
-            const text = input.value.trim();
-            if (text === "") return;
-
-            const msg = document.createElement("div");
-            msg.className = "chat-message user";
-            msg.innerText = text;
-            document.getElementById("chatBody").appendChild(msg);
-            input.value = "";
-            document.getElementById("chatBody").scrollTop = document.getElementById("chatBody").scrollHeight;
-
-            // Step-based storage
-            switch (chatStep) {
-                case 0: chatData.full_name = text; break;
-                case 1: chatData.company_name = text; break;
-                case 2: chatData.email = text; break;
-                case 3: chatData.phone = text; break;
-                case 6: chatData.quantity = text; break;
-                case 7: chatData.details = text; break;
-            }
-
-            // Dynamic AI reply before next question
-            aiReply(text);
-
-            // Next step
-            chatStep++;
-            if (chatStep < chatQuestions.length) botMessage(chatQuestions[chatStep]);
-            else submitChatData();
-        }
-
-        function aiReply(userText) {
-            userText = userText.toLowerCase();
-            if (userText.includes("price") || userText.includes("cost")) {
-                botMessage("Our pricing depends on quantity & destination. We'll confirm after you provide product & quantity.");
-            }
-            else if (userText.includes("partnership") || userText.includes("partner")) {
-                botMessage("We welcome global trade partners. Please provide your company profile in the details step.");
-            }
-            else if (userText.includes("oil")) {
-                botMessage("We export premium Groundnut, Sunflower & Palm Oil in bulk packaging.");
-            }
-        }
-
-        async function submitChatData() {
-            botMessage("✅ Sending your enquiry to our trade manager...");
-            try {
-                const response = await fetch("/send-mail", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(chatData)
-                });
-                if (response.ok) botMessage("Your enquiry has been successfully submitted. We will contact you shortly!");
-                else botMessage("❌ Something went wrong. Please try again.");
-            } catch (error) {
-                console.error(error);
-                botMessage("❌ Server error. Please try again later.");
-            }
-        }
-    </script>
-
-
     <!-- ================= FLOATING SUPPORT BUTTONS ================= -->
 
-    <!-- LIVE CHAT BUTTON -->
-    <div class="floating-livechat" onclick="openLiveChat()">
-        <svg viewBox="0 0 64 64" width="30" height="30" fill="white">
-            <rect x="14" y="22" width="36" height="24" rx="8" />
-            <circle cx="26" cy="34" r="4" />
-            <circle cx="38" cy="34" r="4" />
-            <rect x="28" y="12" width="8" height="6" rx="3" />
-            <line x1="32" y1="12" x2="32" y2="6" stroke="white" stroke-width="2" />
-            <circle cx="32" cy="4" r="3" />
+    <a href="tel:+919502345686" class="floating-call">
+
+        <svg viewBox="0 0 24 24" width="26" height="26" fill="white">
+            <path d="M6.62 10.79a15.053 15.053 0 006.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24
+                    1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V21c0 .55-.45 1-1
+                    1C10.07 22 2 13.93 2 4c0-.55.45-1 1-1h3.5c.55 0 1 .45
+                    1 1 0 1.24.2 2.45.57 3.57.11.35.03.74-.25
+                    1.02l-2.2 2.2z" />
         </svg>
-    </div>
+
+    </a>
     <!-- WHATSAPP SVG BUTTON -->
     <a href="https://wa.me/919502345686" target="_blank" class="floating-whatsapp">
 
@@ -3427,24 +3089,6 @@
 
     </a>
 
-    <!-- ================= LIVE CHAT POPUP ================= -->
-
-    <div id="liveChatBox" class="live-chat-box">
-
-        <div class="live-chat-header">
-            Kalyans International Support
-            <span onclick="closeLiveChat()">×</span>
-        </div>
-
-        <div class="live-chat-body" id="chatBody">
-        </div>
-
-        <div class="live-chat-footer">
-            <input type="text" id="chatInput" placeholder="Type your message...">
-            <button onclick="sendChat()">Send</button>
-        </div>
-
-    </div>
     <script>
         const countrySelect = document.getElementById('countryCodeSelect');
         const otherInput = document.getElementById('otherCountryCode');
