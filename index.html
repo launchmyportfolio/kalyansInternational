@@ -4,9 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kalyans International | Global Imports & Exports</title>
+    <meta name="google-site-verification" content="5Qu83jLdw-a1rpn8eZG-pwFSGHHBd77bRQAj0Xm2Kj0" />
+    <title>Kalyans International | Agricultural Export Company</title>
+    <meta name="description"
+        content="Kalyans International is a global exporter of cereals, spices, fruits, vegetables, cotton and agricultural products. Trusted international supplier.">
+    <meta name="keywords"
+        content="Kalyans International, agricultural exports, spices export, cereals export, fruits export, vegetables export, cotton export">
+    <meta name="author" content="Kalyans International">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Kalyans International">
+    <meta property="og:description" content="Leading exporter of agricultural products worldwide.">
+    <meta property="og:image" content="https://yourdomain.com/images/logo.png">
+    <meta property="og:url" content="https://yourdomain.com">
+    <meta property="og:type" content="website">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="icon" type="image/png" href="images/logo.png">
+
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            "name": "Kalyans International",
+            "url": "https://yourdomain.com",
+            "logo": "https://yourdomain.com/images/logo.png",
+            "sameAs": []
+        }
+    </script>
 
     <style>
         /* ===== GLOBAL STYLES ===== */
@@ -127,6 +150,23 @@
             .nav-links.active {
                 display: flex;
             }
+
+            .hero-brand {
+                gap: 8px;
+                padding: 8px 14px;
+            }
+
+            .hero-brand img {
+                height: 64px;
+            }
+
+            .hero-brand-marquee {
+                width: 200px;
+            }
+
+            .hero-brand-text {
+                font-size: 25px;
+            }
         }
 
         /* ===== HERO SECTION ===== */
@@ -161,6 +201,33 @@
             z-index: 1;
             max-width: 800px;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .hero-brand {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 10px;
+            padding: 10px 16px;
+            border-radius: 10px;
+        }
+
+        .hero-brand img {
+            height: 250px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .hero-brand-text {
+            font-size: 36px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-align: center;
+            color: #C9A227;
         }
 
         .hero h1 {
@@ -1292,27 +1359,32 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 8px;
-            max-width: 80%;
+            gap: 12px;
+            max-width: 85%;
+            white-space: nowrap;
         }
 
         .logo img {
-            height: 40px;
+            height: 60px;
+            width: auto;
+            object-fit: contain;
+            display: block;
         }
 
         .logo h2 {
-            font-size: 18px;
+            font-size: 20px;
             margin: 0;
+            line-height: 1.1;
         }
 
         @media (max-width: 768px) {
 
             .logo img {
-                height: 35px;
+                height: 48px;
             }
 
             .logo h2 {
-                font-size: 16px;
+                font-size: 17px;
             }
 
             .menu-toggle {
@@ -1590,10 +1662,6 @@
     <!-- NAVBAR -->
     <div class="navbar">
         <div class="container navbar-content">
-            <div class="logo">
-                <img src="images/logo.png" alt="Kalyans International Logo">
-                <h2>Kalyan's International</h2>
-            </div>
 
             <!-- Hamburger -->
             <div class="menu-toggle" onclick="toggleMenu()">
@@ -1617,6 +1685,12 @@
     <!-- HERO -->
     <div class="hero">
         <div class="hero-overlay">
+            <div class="hero-brand">
+                <img src="images/logo.png" alt="Kalyans International Export Company Logo" loading="eager">
+                <div class="hero-brand-text">
+                    <h1>M/s Kalyans International</h1>
+                </div>
+            </div>
             <h1>Global Trade. Trusted Partnerships.</h1>
             <p>Exporting Excellence Across US, Africa, UAE, Asia, Europian Countries & Global Markets</p>
             <button onclick="document.getElementById('booking').scrollIntoView()">
@@ -2344,9 +2418,20 @@
 
     <script>
         function toggleMenu() {
-            var menu = document.getElementById("navLinks");
-            menu.classList.toggle("active");
+            const nav = document.getElementById("navLinks");
+            nav.classList.toggle("active");
         }
+
+        document.addEventListener("click", function (event) {
+
+            const nav = document.getElementById("navLinks");
+            const menuToggle = document.querySelector(".menu-toggle");
+
+            if (!nav.contains(event.target) && !menuToggle.contains(event.target)) {
+                nav.classList.remove("active");
+            }
+
+        });
     </script>
 
     <!-- PRODUCT MODAL -->
@@ -3144,6 +3229,24 @@
             });
 
         });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('img:not([loading])').forEach(img => {
+                img.setAttribute('loading', 'lazy');
+            });
+        });
+    </script>
+    <script type="application/ld+json">
+    {
+     "@context": "https://schema.org",
+     "@type": "Organization",
+     "name": "Kalyans International",
+     "url": "https://kalyansinternational.com",
+     "logo": "https://kalyansinternational.com/images/logo.png",
+     "description": "Kalyans International is a global exporter of agricultural commodities including cereals, spices, fruits, vegetables and cotton.",
+     "sameAs": []
+    }
     </script>
 </body>
 </body>
