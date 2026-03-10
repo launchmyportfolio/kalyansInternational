@@ -135,7 +135,7 @@
             .nav-links {
                 position: absolute;
                 top: 60px;
-                right: 0;
+                left: 0;
                 background: #0B1F3A;
                 width: 200px;
                 flex-direction: column;
@@ -171,12 +171,15 @@
 
         /* ===== HERO SECTION ===== */
         .hero {
-            height: 100vh;
-            background-image: url("images/cargo-1.jpg");
-            /* Cargo Ship */
+            min-height: 50vh;
+            padding-top: 80px;
+            box-sizing: border-box;
+
+            background-image: url("images/bg.png");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+
             display: flex;
             align-items: center;
             justify-content: center;
@@ -185,15 +188,12 @@
             position: relative;
         }
 
-        /* Dark overlay */
         .hero::before {
             content: "";
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
+            inset: 0;
+            background: linear-gradient(rgba(0, 0, 0, 0.25),
+                    rgba(0, 0, 0, 0.45));
         }
 
         .hero-overlay {
@@ -430,23 +430,6 @@
         .stat p {
             font-size: 14px;
             color: #555;
-        }
-
-        /* Scroll Animation */
-        .fade-left,
-        .fade-right {
-            opacity: 0;
-            transform: translateX(-80px);
-            transition: all 0.9s ease;
-        }
-
-        .fade-right {
-            transform: translateX(80px);
-        }
-
-        .show {
-            opacity: 1;
-            transform: translateX(0);
         }
 
         /* Responsive */
@@ -1655,6 +1638,90 @@
             transform: translateY(-4px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
         }
+
+        .hero {
+    min-height: 50vh;
+    padding-top: 80px;
+
+    background: url("images/bg.png") center/cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    position: relative;
+    color: white;
+}
+
+/* Transparent overlay */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.45); /* transparency layer */
+}
+
+/* content above overlay */
+.hero-overlay {
+    position: relative;
+    z-index: 2;
+
+    max-width: 800px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+/* logo */
+.hero-brand img {
+    background-color: #071a2f;
+    height: 220px;
+    object-fit: contain;
+}
+
+/* heading */
+.hero-brand-text h1{
+    font-size: 56px;
+    font-weight: 700;
+    font-family: cursive;
+    background-color: #071a2f;
+    color: white;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+/* subtitle */
+.hero h2{
+    font-size: 28px;
+    font-weight: 500;
+    color: #C9A227;
+}
+
+/* description */
+.hero p{
+    font-size: 18px;
+    line-height: 1.6;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.6);
+}
+
+/* button */
+.hero button{
+    background:#e6b30b;
+    border:none;
+    padding:14px 32px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.hero button:hover{
+    background:white;
+    color:#0B1F3A;
+}
     </style>
 </head>
 
@@ -1691,7 +1758,7 @@
                     <h1>M/s Kalyans International</h1>
                 </div>
             </div>
-            <h1>Global Trade. Trusted Partnerships.</h1>
+            <h2>Global Trade. Trusted Partnerships.</h2>
             <p>Exporting Excellence Across US, Africa, UAE, Asia, Europian Countries & Global Markets</p>
             <button onclick="document.getElementById('booking').scrollIntoView()">
                 Enquire
@@ -1705,7 +1772,7 @@
 
             <!-- Left Image -->
             <div class="about-image fade-left">
-                <img src="images/cargo-2.jpg" alt="Cargo Ship">
+                <img src="images/cargo-2.jpg" alt="Cargo Ship"> 
             </div>
 
             <!-- Right Content -->
