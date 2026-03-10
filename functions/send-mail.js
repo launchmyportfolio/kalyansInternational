@@ -19,7 +19,7 @@ export async function onRequestPost(context) {
       },
       body: JSON.stringify({
         from: "Trade Enquiry <onboarding@resend.dev>",
-        to: ["launchmyportfolio@gmail.com"], // Must be your Resend login email
+        to: ["kalyanbabu85@gmail.com"], // Must be your Resend login email
         subject: `New Trade Enquiry - ${data.product}`,
         html: `
           <h2>New International Trade Enquiry</h2>
